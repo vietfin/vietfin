@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "vietfin"
+version = "0.1.0"
+description = "Python package to fetch Vietnam stock market data"
+authors = ["Huy <vietfin.numbness179@simplelogin.fr>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2.5.3"  # needed to validate data
+pandas = "^2.1.4"  # needed to manipulate data
+requests = "^2.31.0"  # needed to fetch data from web
+pyarrow = "^14.0.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+ruff = "^0.1.11"
+mypy = "^1.8.0"
+ipykernel = "^6.28.0"
+pytest-cov = "^4.1.0"
+pandas-stubs = "^2.1.4.231227"  # needed for mypy to type hint pandas
+types-requests = "^2.31.0.20240106"  # needed for mypy to type hint requests
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+# max char per line
+line-length = 80
+
+# indent with 4 spaces
+indent-width = 4
+
+# Assume Python 3.10
+target-version = "py310"
+
+[tool.ruff.format]
+# use double quote for strings.
+quote-style = "double"
+
+# indent with spaces, rather than tabs.
+indent-style = "space"
