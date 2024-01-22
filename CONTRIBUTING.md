@@ -35,6 +35,17 @@ Pick or suggest an issue, by going through the issue tracker, which you would li
 
 Setup your local development environment. Then start coding.
 
+### Setup local development environment
+
+I use the combination of [conda](https://docs.conda.io/en/latest/) to manage virtual environments and [poetry](https://python-poetry.org/) to manage dependencies.
+
+- Clone the `dev` branch of the VietFin repository. E.g. `git clone -b dev https://github.com/h7b/vietfin.git`
+- Install [conda](https://docs.conda.io/en/latest/miniconda.html)
+- Create a new conda environment named `dev-vietfin` with `Python 3.10`. E.g. `conda create -n dev-vietfin python=3.10`
+- Activate the environment. E.g. `conda activate dev-vietfin`
+- Install poetry. E.g. `conda install poetry`
+- Install dependencies with optional dependency group `dev` for developement purposes. E.g. `poetry install --with dev`
+
 ### Open a Pull Request
 
 When you have resolved your issue, open a pull request (PR) in the VietFin repository. Please adhere to the following guidelines:
