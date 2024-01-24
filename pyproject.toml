@@ -43,3 +43,6 @@ quote-style = "double"
 
 # indent with spaces, rather than tabs.
 indent-style = "space"
+
+# automatically detect the appropriate line ending.
+line-ending = "auto"

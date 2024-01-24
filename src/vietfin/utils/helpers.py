@@ -3,8 +3,8 @@
 from typing import Iterable
 from typing_extensions import Annotated
 import re
-from datetime import datetime, timezone
 import ast
+from datetime import datetime, timezone
 
 import pandas as pd
 from pydantic.functional_validators import AfterValidator
@@ -26,13 +26,13 @@ def to_snake_case(string: str) -> str:
 
 def validate_datetime(v: datetime) -> datetime:
     """Validate datetime value.
-    
-    Return None if date before 1970-01-01
+
+    Return None if date before 1970-01-01.
 
     """
     # Compare to offset-aware datetime
     if v < datetime(1970, 1, 1, 0, 0).replace(tzinfo=timezone.utc):
-        return None # type: ignore
+        return None  # type: ignore
     return v
 
 
@@ -45,7 +45,7 @@ def basemodel_to_df(
     index: str | Iterable | None = None,
 ) -> pd.DataFrame:
     """Convert a list of Pydantic BaseModel to a Pandas DataFrame.
-    
+
     source: https://github.com/OpenBB-finance/OpenBBTerminal/blob/develop/openbb_platform/core/openbb_core/app/utils.py
 
     """

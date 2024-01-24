@@ -28,6 +28,7 @@ DEFAULT_FUND_TYPE = ""
 
 # Helpers
 
+
 def get_fund_id(symbol: str) -> int:
     """Lookup FundID based on Fund short name.
 
@@ -62,13 +63,15 @@ def get_fund_id(symbol: str) -> int:
         )
 
     data = response.json()
-    
+
     # This logic is handcrafted for the data structure returned by the API
     if data["data"]["total"] == 0:
         raise VietFinError(f"No fund found for symbol {symbol}")
     elif data["data"]["total"] > 1:
-        raise VietFinError(f"Multiple funds found for the given symbol {symbol}")
+        raise VietFinError(
+            f"Multiple funds found for the given symbol {symbol}"
+        )
     else:
         fund_id = int(data["data"]["rows"][0]["id"])
-    
+
     return fund_id

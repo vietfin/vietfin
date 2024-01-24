@@ -5,6 +5,7 @@ from vietfin.utils.errors import VietFinError
 from .utils import fmarket_headers, get_fund_id
 from .models.fund_holdings import FmarketFundHoldingsData
 
+
 def holdings(symbol: str) -> VfObject:
     """
     Retrieve a list of top 10 holdings in the specified fund from the Fmarket API.
@@ -18,15 +19,13 @@ def holdings(symbol: str) -> VfObject:
     -------
     VfObject
         The current top 10 holdings of the selected fund.
-        
+
     """
 
     # Retrieve fund_id matching the given symbol
     fund_id = get_fund_id(symbol)
 
     # API call
-    # Logic: there are funds which allocate to either equities or fixed income securities, or both
-    # We need to parse the data from two separated nodes and merge into one output
     url = f"https://api.fmarket.vn/res/products/{fund_id}"
     response = requests.get(url, headers=fmarket_headers, cookies=None)
 
@@ -38,17 +37,16 @@ def holdings(symbol: str) -> VfObject:
     data = response.json()
     list_of_holdings = []
 
+    # NOTE: there are funds which allocate to either equities or fixed income securities, or both
+    # We need to parse the data from two separated nodes and merge into one output
+
     # Extract top holdings in equity
     rows = data["data"]["productTopHoldingList"]
-    fund_top_holdings_stock = [
-        FmarketFundHoldingsData(**r) for r in rows
-    ]
+    fund_top_holdings_stock = [FmarketFundHoldingsData(**r) for r in rows]
 
     # Extract top holdings in fixed income securities
     rows = data["data"]["productTopHoldingBondList"]
-    fund_top_holdings_bond = [
-        FmarketFundHoldingsData(**r) for r in rows
-    ]
+    fund_top_holdings_bond = [FmarketFundHoldingsData(**r) for r in rows]
 
     # Output the merged list
     list_of_holdings = fund_top_holdings_stock + fund_top_holdings_bond

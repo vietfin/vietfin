@@ -5,7 +5,8 @@ class EmptyDataError(Exception):
     """Exception raised for empty data."""
 
     def __init__(
-        self, message: str = "No results found. Try adjusting the query parameters."
+        self,
+        message: str = "No results found. Try adjusting the query parameters.",
     ):
         """Initialize the exception."""
         self.message = message

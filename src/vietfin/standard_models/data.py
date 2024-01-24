@@ -7,7 +7,7 @@ class Data(BaseModel):
     """The VietFin Standardized Data Model.
 
     source: https://github.com/OpenBB-finance/OpenBBTerminal/blob/develop/openbb_platform/core/openbb_core/provider/abstract/data.py
-    
+
     The `Data` class is a flexible Pydantic model designed to accommodate various data structures
     for VietFin's data processing pipeline as it's structured to support dynamic field definitions.
 
@@ -26,7 +26,7 @@ class Data(BaseModel):
     __alias_dict__: dict[str, str] = {}
 
     model_config = ConfigDict(
-        extra='ignore',
+        extra="ignore",
         populate_by_name=True,
         strict=False,
     )
@@ -34,7 +34,7 @@ class Data(BaseModel):
     # Transform a dictionary of values received from external input,
     # to match the internal naming conventions of the Pydantic model
     # This method is invoked before the inner validator of the Pydantic model is called
-    @model_validator(mode='before')
+    @model_validator(mode="before")
     @classmethod
     def _use_alias(cls, values) -> dict:
         """Maps field names to their aliases."""
