@@ -1,16 +1,17 @@
 """Fmarket Mutual Fund Holding Asset Standard Model."""
 
-from vietfin.standard_models.data import Data
+from typing_extensions import TypedDict
+
+from vietfin.abstract.data import Data
 
 
-class FmarketFundAssetTypeNameData(Data):
-    """Fmarket Fund Asset Type Name Data."""
+class FmarketFundAssetTypeNameData(TypedDict):
+    """Fmarket Fund Asset Type Name Data.
+    
+    Purpose: define the nested structure of the data returned by the API.
+    """
 
-    __alias_dict__ = {
-        "asset_type_name": "name",
-    }
-
-    asset_type_name: str | None
+    name: str | None
 
 
 class FmarketFundAssetTypesData(Data):

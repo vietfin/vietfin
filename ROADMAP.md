@@ -1,0 +1,145 @@
+# Roadmap
+
+Status:
+- [x] Implemented
+- [ ] In progress
+- Not implemented yet
+
+Current hierarchical structure of commands and its equivalent functions in [OpenBB Platform](https://docs.openbb.co/platform) which serve as a reference point.
+
+- Equity
+    - [x] search() [ref](https://docs.openbb.co/platform/reference/equity/search)
+        - search for a company by its stock ticker.
+        - example: vf.equity.search()
+    - [x] profile() [ref](https://docs.openbb.co/platform/reference/equity/profile)
+        - get general info of a company by its stock ticker.
+        - example: vf.equity.profile(symbol='SSI')
+    - Price
+        - [x] historical() [ref](https://docs.openbb.co/platform/reference/equity/price/historical)
+            - retrieve historical price of a stock ticker.
+            - example: vf.equity.price.historical(symbol='SSI')
+        - [x] quote() [ref](https://docs.openbb.co/platform/reference/equity/price/quote)
+            - retrieve quote data of a stock ticker.
+            - example: vf.equity.price.quote(symbol='SSI')
+        - performance() [ref](https://docs.openbb.co/platform/reference/equity/price/performance)
+            - params: symbol, provider
+            - example: vf.equity.price.performance(symbol='SSI')
+    - Discovery: NOTE: 20240212 implemented but api returns no data, check later
+        - [x] active() [ref](https://docs.openbb.co/platform/reference/equity/discovery/active)
+            - get the most active stocks by trading value.
+            - example: vf.equity.discovery.active()
+        - [x] gainers() [ref](https://docs.openbb.co/platform/reference/equity/discovery/gainers)
+            - get the most gainers stocks.
+            - example: vf.equity.discovery.gainers()
+        - [x] losers() [ref](https://docs.openbb.co/platform/reference/equity/discovery/losers)
+            - get the most losers stocks.
+            - example: vf.equity.discovery.losers()
+    - Calendar
+        - [x] events()
+            - get the historical events of a stock ticker.
+            - example: vf.equity.calendar.events(symbol='SSI', limit=100)
+        - dividend() [ref](https://docs.openbb.co/platform/reference/equity/calendar/dividend)
+        - earnings() [ref](https://docs.openbb.co/platform/reference/equity/calendar/earnings)
+        - splits() [ref](https://docs.openbb.co/platform/reference/equity/calendar/splits)
+    - Fundamental
+        - [x] management() [ref](https://docs.openbb.co/platform/reference/equity/fundamental/management)
+            - get the key executives of a company via its stock ticker.
+            - example: vf.equity.fundamental.management(symbol='SSI')
+        - [x] ratios() [ref](https://docs.openbb.co/platform/reference/equity/fundamental/ratios)
+            - get the key financial ratios of a company.
+            - example: vf.equity.fundamental.ratios(symbol='SSI')
+        - [x] dividends() [ref](https://docs.openbb.co/platform/reference/equity/fundamental/dividends)
+            - get the historical dividends data of a company.
+            - example: vf.equity.fundamental.dividends(symbol='SSI')
+        - [x] income() [ref](https://docs.openbb.co/platform/reference/equity/fundamental/income)
+            - get the report on the income statement of a company.
+            - example: vf.equity.fundamental.income(symbol='SSI')
+        - [x] balance() [ref](https://docs.openbb.co/platform/reference/equity/fundamental/balance)
+            - get the report on the balance sheet of a company.
+            - example: vf.equity.fundamental.balance(symbol='SSI')
+        - [x] cash() [ref](https://docs.openbb.co/platform/reference/equity/fundamental/cash)
+            - get the report on the cash flow statement of a company.
+            - example: vf.equity.fundamental.cash(symbol='SSI')
+        - [] multiples() [ref](https://docs.openbb.co/platform/reference/equity/fundamental/multiples)
+            - params: symbol, provider
+            - example: vf.equity.fundamental.multiples(symbol='SSI')
+            - NOTE: 20240215 tcbs has only historical p/e, p/b, industry and index muliples data which are quite useless
+    - Ownership
+        - [x] insider_trading() [ref](https://docs.openbb.co/platform/reference/equity/ownership/insider_trading)
+            - get the insider trading data of a company.
+            - example: vf.equity.ownership.insider_trading(symbol='SSI')
+        - [x] major_holders() [ref](https://docs.openbb.co/platform/reference/equity/ownership/major_holders)
+            - get the information about the company ownership.
+            - example: vf.equity.ownership.major_holders(symbol='SSI')
+        - [x] foreign_trading()
+            - get the trading data of foreign entities for a specific stock ticker.
+            - example: vf.equity.ownership.foreign_trading(symbol='SSI')
+        - [x] prop_trading()
+            - get the proprietary trading data, showing the interest of the domestic prop trading firms in a company.
+            - example: vf.equity.ownership.prop_trading(symbol='SSI')
+        - share_statistics() [ref](https://docs.openbb.co/platform/reference/equity/ownership/share_statistics)
+            - params: symbol, provider
+            - example: vf.equity.ownership.share_statistics(symbol='SSI')
+    - Estimates
+        - consensus() [ref](https://docs.openbb.co/platform/reference/equity/estimates/consensus)
+        - price_target() [ref](https://docs.openbb.co/platform/reference/equity/estimates/price_target)
+- Derivatives
+    - Futures
+        - [x] historical() [ref](https://docs.openbb.co/platform/reference/derivatives/futures/historical) 
+            - get historical price of a futures contract.
+            - example: vf.derivatives.futures.historical(symbol='VN30F1M')
+        - [x] quote() [ref](https://docs.openbb.co/platform/reference/equity/price/quote)
+            - get historical quote of a futures contract.
+            - example: vf.equity.derivatives.futures.quote(symbol='VN30F2402')
+    - Options
+        - chains() [ref](https://docs.openbb.co/platform/reference/derivatives/options/chains)
+        - NOTE: 20240214 Vietnam does not support options contract yet
+- Mutual Funds [ref](https://docs.openbb.co/terminal/menus/mutualfunds)
+    - [x] search()
+        - search for a mutual funds via its symbol.
+        - example: vf.funds.search()
+    - [x] historical()
+        - get historical price of a mutual funds.
+        - example: vf.funds.historical(symbol='vesaf')
+    - [x] holdings()
+        - get top holdings of a mutual funds.
+        - example: vf.funds.holdings(symbol='vesaf')
+- ETF
+    - [x] search() [ref](https://docs.openbb.co/platform/reference/etf/search)
+        - search for a ETF via its symbol.
+        - example: vf.etf.search()
+    - [x] historical() [ref](https://docs.openbb.co/platform/reference/etf/historical)
+        - get historical price of a ETF.
+        - example: vf.etf.historical(symbol='E1VFVN30')
+    - holdings() [ref](https://docs.openbb.co/platform/reference/etf/holdings)
+        - params: symbol, provider.
+        - example: vf.funds.holdings(symbol='E1VFVN30')
+    - Discovery [ref](https://docs.openbb.co/platform/reference/etf/discovery)
+        - active() [ref](https://docs.openbb.co/platform/reference/etf/discovery/active)
+        - gainers() [ref](https://docs.openbb.co/platform/reference/etf/discovery/gainers)
+        - losers() [ref](https://docs.openbb.co/platform/reference/etf/discovery/losers)
+- Index
+    - [x] search() [ref](https://docs.openbb.co/platform/reference/index/search)
+        - search for an index via its symbol.
+        - example: vf.index.search()
+    - [x] constituents() [ref](https://docs.openbb.co/platform/reference/index/constituents)
+        - get the list of constituents of an index.
+        - example: vf.index.constituents(symbol='vn30')
+    - Price
+        - [x] historical() [ref](https://docs.openbb.co/platform/reference/index/price/historical)
+            - get the historical price of an index.
+            - example: vf.index.historical(symbol='vn30')
+            - note: only some index has data, e.g. dnse: vnindex, vn30, hnx, upcom; tcbs: vnindex, vn30, upcom
+- Currency
+    - search() [ref](https://docs.openbb.co/platform/reference/currency/search)
+        - params: provider. Default: empty string to list all available currency pairs
+        - example: vf.currency.search()
+    - reference_rates() [ref](https://docs.openbb.co/platform/reference/currency/reference_rates)
+        - params: symbol, provider. Default: empty string to list the current reference rate of all available currency pairs
+        - example: vf.currency.reference_rates()
+- FixedIncome [ref](https://docs.openbb.co/platform/reference/fixedincome)
+    - Note: 20240215 ssi has data, but almost useless, need to research on other data sources.
+- News
+    - [x] company() [ref](https://docs.openbb.co/platform/reference/news/company)
+        - get the news related to a company.
+        - example: vf.news.company(symbol='SSI')

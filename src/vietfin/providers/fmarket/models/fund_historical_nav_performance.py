@@ -1,6 +1,6 @@
 """Fmarket Mutual Fund Historical NAV per Share Performance Model."""
 
-from vietfin.standard_models.data import Data
+from vietfin.abstract.data import Data
 from vietfin.utils.helpers import ValidatedDatetime
 
 

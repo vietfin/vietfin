@@ -2,11 +2,11 @@
 
 
 class EmptyDataError(Exception):
-    """Exception raised for empty data."""
+    """Raised if the API response is empty."""
 
     def __init__(
         self,
-        message: str = "No results found. Try adjusting the query parameters.",
+        message: str = "API response is empty. Try adjusting the query parameters.",
     ):
         """Initialize the exception."""
         self.message = message
@@ -14,7 +14,7 @@ class EmptyDataError(Exception):
 
 
 class VietFinError(Exception):
-    """VietFin Error."""
+    """Raised for Uncategorized Error."""
 
     def __init__(self, original: str | Exception | None = None):
         self.original = original

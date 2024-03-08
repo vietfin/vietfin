@@ -1,6 +1,6 @@
 """Fmarket Mutual Fund Industries Model."""
 
-from vietfin.standard_models.data import Data
+from vietfin.abstract.data import Data
 
 
 class FmarketFundIndustriesData(Data):

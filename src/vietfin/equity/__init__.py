@@ -1,1 +1,0 @@
-"""VietFin Equity module directory."""
