@@ -105,7 +105,7 @@ Before creating a ticket, make sure the one you are creating doesn't exist alrea
 - [Suggest improvement](https://github.com/OpenBB-finance/OpenBBTerminal/issues/new?assignees=&labels=enhancement&template=enhancement.md&title=%5BIMPROVE%5D)
 - [Request a feature](https://github.com/OpenBB-finance/OpenBBTerminal/issues/new?assignees=&labels=new+feature&template=feature_request.md&title=%5BFR%5D)
 
-Feel free to reach out to us in GitHub Discussion for feedback.
+Feel free to reach out to us in [our GitHub Discussions](https://github.com/vietfin/vietfin/discussions) for feedback.
 
 ## 5. Attributions
 
@@ -126,4 +126,4 @@ VietFin and any provider of the data contained in this website will not accept l
 
 ## 7. Contacts
 
-If you have any questions about `VietFin` or just to say hi, feel free to leave your message by opening a new discussion in GitHub.
+If you have any questions about `VietFin` or just to say hi, feel free to leave your message by [opening a new public discussion in GitHub](https://github.com/vietfin/vietfin/discussions/new/choose), or send an email to `vietfin.numbness179(at)simplelogin.fr`.
