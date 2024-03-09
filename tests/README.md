@@ -1,6 +1,6 @@
 # 1. VietFin Unit Testing
 
-This document is an annex of the VietFin Contributing Guidelines.
+This document is an annex of the VietFin [Contributing Guidelines](/CONTRIBUTING.md).
 
 It provides the necessary information to build, run and maintain Unit Tests for VietFin.
 
