@@ -68,7 +68,7 @@ Requirements:
 
 ## 3. Usage
 
-    ``` {.sourceCode .python}
+    ```python
     from vietfin import vf
 
     # Get list of all stocks

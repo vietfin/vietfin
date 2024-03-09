@@ -149,7 +149,7 @@ The 2nd layer, "Factory", is an implementation of the data fetching from API pro
 
 ```mermaid
 ---
-title: 2nd Layer - Example: Factory of Funds component
+title: Part of 2nd Layer - Factory of Funds component
 ---
 classDiagram
     class IFunds {
@@ -179,7 +179,7 @@ The 3rd layer is "Data Standardization", an accomodation of various data structu
 
 ```mermaid
 ---
-title: 3rd Layer - Data Standardization - Example of Funds component with Fmarket data provider
+title: Part of 3rd Layer - Data Standardization - Funds component with Fmarket data provider
 ---
 classDiagram
     class FundsFmarket {
