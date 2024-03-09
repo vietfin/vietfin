@@ -1,0 +1,1 @@
+"""SSI Data Models Directory."""
