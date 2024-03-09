@@ -68,42 +68,31 @@ Requirements:
 
 ## 3. Usage
 
-    ```python
-    from vietfin import vf
-
-    # Get list of all stocks
-    vf.equity.search()
-
-    # Get general info of a stock
-    vf.equity.profile(symbol='vnm')
-
-    # Get historical price of a stock
-    vf.equity.historical(symbol='vnm')
-
-    # Get the historical dividends data of a company
-    vf.equity.fundamental.dividends(symbol='vnm')
-
-    # Get list of key executives of a company
-    vf.equity.fundamental.management(symbol='vnm')
-
-    # Get the key financial ratios of a company
-    vf.equity.fundamental.ratios(symbol='vnm')
-
-    # Get the report on the income statement of a company
-    vf.equity.fundamental.income(symbol='vnm')
-
-    # Get the historical events of a stock ticker
-    vf.equity.calendar.events(symbol='vnm')
-
-    # Get the list of available mutual funds
-    vf.funds.search()
-
-    # Get the list of available ETFs
-    vf.etf.search()
-
-    # Get the list of constituents of an index
-    vf.index.constituents(symbol='vn30')
-    ```
+```python
+from vietfin import vf
+# Get list of all stocks
+vf.equity.search()
+# Get general info of a stock
+vf.equity.profile(symbol='vnm')
+# Get historical price of a stock
+vf.equity.historical(symbol='vnm')
+# Get the historical dividends data of a company
+vf.equity.fundamental.dividends(symbol='vnm')
+# Get list of key executives of a company
+vf.equity.fundamental.management(symbol='vnm')
+# Get the key financial ratios of a company
+vf.equity.fundamental.ratios(symbol='vnm')
+# Get the report on the income statement of a company
+vf.equity.fundamental.income(symbol='vnm')
+# Get the historical events of a stock ticker
+vf.equity.calendar.events(symbol='vnm')
+# Get the list of available mutual funds
+vf.funds.search()
+# Get the list of available ETFs
+vf.etf.search()
+# Get the list of constituents of an index
+vf.index.constituents(symbol='vn30')
+```
 
 ## 4. Contributing
 
