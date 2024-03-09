@@ -85,7 +85,7 @@ You can also suggest to edit a single page of the docs, simply by clicking the `
 
 The `./tests` folder contains the main VietFin test suite.
 
-At the moment, the test suite contains only unit tests. These tests are intended to make sure all VietFin functionality work as intended.
+At the moment, the test suite contains only unit tests. These tests are intended to make sure all VietFin functionality work as intended. Check the [Testing guidelines](/tests/README.md) for more details.
 
 ## Versioning
 
