@@ -1,4 +1,4 @@
-# 1. VietFin Testing GUidelines
+# 1. VietFin Testing Guidelines
 
 This document is an annex of the VietFin [Contributing Guidelines](/CONTRIBUTING.md).
 
