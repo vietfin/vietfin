@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information ------------------------------------------------------
 
 project = "VietFin"
-copyright = "Copyright &copy; 2023, Huy"
+copyright = "Copyright &copy; 2023-2024, Huy"
 author = "Huy"
 
 version = vietfin.__version__
@@ -33,7 +33,7 @@ extensions = [
     "sphinx.ext.napoleon",  # enables sphinx to parse numpydoc style docstrings
     "sphinx.ext.viewcode",  # adds a helpful link to the source code of each object in the API reference sheet
     # "sphinx.ext.intersphinx",
-    # "sphinx.ext.extlinks",
+    "sphinx.ext.extlinks",  # shorten external links that point to URLs on one and the same site
     # "sphinx.ext.todo",
     # "sphinx.ext.autosummary",
     # Third-party extensions
@@ -68,14 +68,14 @@ mermaid_cmd = "C:\\Users\\huytr\\AppData\\Roaming\\npm\\mmdc.cmd"
 mermaid_cmd_shell = True
 
 # Force the output for Mermaid diagram as svg when building HTML files
-mermaid_output_format = "svg"
+mermaid_output_format = "raw"
 
 # -- Options for extlinks ----------------------------------------------------
 
-# extlinks = {
-#     'pull': ('https://github.com/lepture/shibuya/pull/%s', 'pull request #%s'),
-#     'issue': ('https://github.com/lepture/shibuya/issues/%s', 'issue #%s'),
-# }
+extlinks = {
+    'pull': ('https://github.com/vietfin/vietfin/pull/%s', 'pull request #%s'),
+    'issue': ('https://github.com/vietfin/vietfin/issues%s', 'issue #%s'),
+}
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -84,14 +84,24 @@ html_theme = "shibuya"
 html_logo = "_static/logo.jpg"
 
 html_static_path = ["_static"]
-html_extra_path = ["_public"]
+# html_extra_path = ["_public"]
 
 html_favicon = "_static/favicon/favicon.ico"
 
 html_theme_options = {
    "accent_color": "blue",
    "dark_code": True,
-#    "toctree_collapse": False,
+   "toctree_collapse": False,
+   "globaltoc_expand_depth": 1,
+}
+
+# Shibuya theme - Add an “Edit This Page” link
+html_context = {
+    "source_type": "github",
+    "source_user": "vietfin",
+    "source_repo": "vietfin",
+    "source_version": "dev",  # branch name to use with this button # optional
+    "source_docs_path": "/docs/",  # docs source directory # optional
 }
 
 # -- Options for sphinx_sitemap ----------------------------------------------------

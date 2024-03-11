@@ -17,7 +17,7 @@ Install VietFin in your project's virtual environment using `Poetry <https://pyt
 
    poetry add vietfin
 
-Or using `pip`.
+Or using ``pip``.
 
 .. code-block:: shell
    
