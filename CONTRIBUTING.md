@@ -33,7 +33,7 @@ Credit: [yfinance](https://github.com/ranaroussi/yfinance/discussions/1084)
 
 ### Work on an issue
 
-Pick or suggest an issue, by going through the issue tracker, which you would like to work on. 
+Pick or suggest an issue, by going through the [issue tracker](https://github.com/vietfin/vietfin/issues), which you would like to work on. 
 
 Setup your local development environment. Then start coding.
 
@@ -64,7 +64,7 @@ When you have resolved your issue, open a pull request (PR) in the VietFin repos
 - Stage the files you want to commit. E.g. `git add src/vietfin/funds/funds.py`
 - Write a concise commit message under 50 characters. E.g. `git commit -m "feat: add AmazingFeature"`
 - Push your changes to the appropriate branch in your fork. E.g. `git push origin feat/AmazingFeature`
-- Go to your GitHub, then open a PR in the VietFin repository
+- Go to your [GitHub](https://github.com/), then open a PR in the VietFin repository
 
 ## Contributing to documentation
 
@@ -79,13 +79,13 @@ If you want to modify/add documentation and see how changes will be rendered, yo
 - Install poetry. E.g. `conda install poetry`
 - Install dependencies with optional dependency group `docs` for writing docs purposes. E.g. `poetry install --with docs`
 
-You can also suggest to edit a single page of the docs, simply by clicking the `Edit this page` button on the right side bar of the docs page. This will open a GitHub page where you can edit the page and submit a PR to the VietFin repository.
+You can also suggest to edit a single page of the docs, simply by clicking the `Edit this page` button on the right side bar of the VietFin docs page. This will open a GitHub website where you can edit the single docs page and submit a PR to the VietFin repository.
 
 ## Test suite
 
 The `./tests` folder contains the main VietFin test suite.
 
-At the moment, the test suite contains only unit tests. These tests are intended to make sure all VietFin functionality work as intended. Check the [Testing Guidelines](/tests/README.md) for more details.
+At the moment, the test suite contains only unit tests. These tests assert that all VietFin functionality work as intended with default parameters. Read the [Testing Guidelines](/tests/README.md) for more details.
 
 ## Versioning
 
@@ -95,9 +95,9 @@ VietFin adheres to the [semantic versioning](https://semver.org/) specification.
 
 ## Codebase structure
 
-The codebase is structured as 3 layers:
+At high level, the codebase is structured as 3 layers:
 
-The 1st layer, "Facade", is a recreation of the [hierarchical structure](https://docs.openbb.co/platform/reference) of the user-facing commands of OpenBB. It includes the dummy class `VietFin`, and its components (i.e. `Funds`, `Equity`, `EquityPrice`, etc.). The word "Facade" coming from [Facade Design Pattern](https://faun.pub/design-patterns-in-python-facade-pattern-4f495746301d).
+The 1st layer, "Facade", is a recreation of the [OpenBB's hierarchical structure](https://docs.openbb.co/platform/reference) for user-facing commands. It includes a "wrapper" class named `VietFin`, and its components (i.e. `Funds`, `Equity`, `EquityPrice`, etc.). The word "Facade" coming from [Facade Design Pattern](https://faun.pub/design-patterns-in-python-facade-pattern-4f495746301d).
 
 ```mermaid
 ---
@@ -145,7 +145,7 @@ classDiagram
     VietFin <-- Index
 ```
 
-The 2nd layer, "Factory", is an implementation of the data fetching from API providers. It includes the abstract interface (i.e. `IFunds`, `IEquity`, etc.) and its real/concrete implementations for each data provider (i.e. `FundsFmarket`, `EquitySsi`, etc.). I applied the [Factory Design Pattern](https://realpython.com/factory-method-python/) to develop this layer. I expect that it should be coherent to add new features (e.g. more asset types, groups of commands) and to integrate new data providers.
+The 2nd layer, "Factory", is an implementation of the data fetching from API providers. It includes the abstract interface (i.e. `IFunds`, `IEquity`, etc.), its real/concrete implementations for each data provider (i.e. `FundsFmarket`, `EquitySsi`, etc.) and the data models for each API provider (i.e. `FmarketFundInfoData`, `SsiEquitySearchData`, etc.). I applied the [Factory Design Pattern](https://realpython.com/factory-method-python/) to develop this layer. I expect that it should be coherent to add new features (e.g. more asset types, groups of commands) and to integrate new data providers.
 
 ```mermaid
 ---

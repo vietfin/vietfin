@@ -5,7 +5,7 @@ Status:
 - [ ] In progress
 - Not implemented yet
 
-Current hierarchical structure of commands and its equivalent functions in [OpenBB Platform](https://docs.openbb.co/platform) which serve as a reference point.
+Current list of commands and its equivalent functions in [OpenBB Platform](https://docs.openbb.co/platform) which serve as a reference point.
 
 - Equity
     - [x] search() [ref](https://docs.openbb.co/platform/reference/equity/search)
