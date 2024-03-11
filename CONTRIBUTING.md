@@ -145,7 +145,7 @@ classDiagram
     VietFin <-- Index
 ```
 
-The 2nd layer, "Factory", is an implementation of the data fetching from API providers. It includes the abstract interface (i.e. `IFunds`, `IEquity`, etc.), its real/concrete implementations for each data provider (i.e. `FundsFmarket`, `EquitySsi`, etc.) and the data models for each API provider (i.e. `FmarketFundInfoData`, `SsiEquitySearchData`, etc.). I applied the [Factory Design Pattern](https://realpython.com/factory-method-python/) to develop this layer. I expect that it should be coherent to add new features (e.g. more asset types, groups of commands) and to integrate new data providers.
+The 2nd layer, "Factory", is an implementation of the data fetching from API providers. It includes the abstract interface (i.e. `IFunds`, `IEquity`, etc.) and its real/concrete implementations for each data provider (i.e. `FundsFmarket`, `EquitySsi`, etc.). I applied the [Factory Design Pattern](https://realpython.com/factory-method-python/) to develop this layer. I expect that it should be coherent to add new features (e.g. more asset types, groups of commands) and to integrate new data providers.
 
 ```mermaid
 ---
@@ -189,31 +189,41 @@ classDiagram
     }
 
     class FmarketFundInfoData {
-        -fund_id: int
-        -short_name: str
-        -name: str
-        -inception_date: ValidatedDatetime | None
-        -management_fee: float | None
-        -nav: float | None
-        -fund_owner: FmarketFundOwnerData | T | None
-        -fund_type: FmarketFundTypesData | T | None
+        +fund_id: int
+        +short_name: str
+        +name: str
+        +inception_date: ValidatedDatetime | None
+        +management_fee: float | None
+        +nav: float | None
+        +fund_owner: FmarketFundOwnerData | T | None
+        +fund_type: FmarketFundTypesData | T | None
     }
     class FmarketFundHoldingsData {
-        -stock_code: str
-        -industry: str
-        -net_asset_percent: float
-        -type_asset: str
-        -update_at: ValidatedDatetime | None
+        +stock_code: str
+        +industry: str
+        +net_asset_percent: float
+        +type_asset: str
+        +update_at: ValidatedDatetime | None
     }
     class FmarketFundHistoricalNavData {
-        -date: str
-        -nav_per_share: float
-        -fund_id: int
+        +date: str
+        +nav_per_share: float
+        +fund_id: int
     }
 
     FundsFmarket <-- FmarketFundInfoData
     FundsFmarket <-- FmarketFundHoldingsData
     FundsFmarket <-- FmarketFundHistoricalNavData
+
+    class Data {
+        <<abstract>>
+        -__alias_dict__: Dict[str, str]
+        -model_config: ConfigDict
+    }
+
+    Data <-- FmarketFundInfoData
+    Data <-- FmarketFundHoldingsData
+    Data <-- FmarketFundHistoricalNavData
 ```
 
 In combination of 3 layers, take an example with the component `Funds` of `VietFin` package.
@@ -609,27 +619,27 @@ Based on this codebase's structure, when I want to add a new asset type (e.g. Et
 │   └── ...
 ├── providers                                   # The functions and data model which crawl data from each data provider
 │   ├── cafef                                   # Provider CafeF
-│   │   ├── models                              # Data models used in the provider
+│   │   ├── models                              # Data models used in the provider CafeF
 │   │   │   ├── __init__.py
 │   │   │   ├── equity_ownership_foreign.py
 │   │   │   └── ...
-│   │   ├── utils                               # Functions used to crawl data from the provider
+│   │   ├── utils                               # Functions used to crawl data from the provider CafeF
 │   │   │   ├── equity_ownership_foreign.py
 │   │   │   ├── ...
 │   │   │   └── helpers.py
 │   │   ├── __init__.py
-│   │   └── provider.py                         # The concrete implementation of the provider 
+│   │   └── provider.py                         # The concrete implementation of the provider CafeF
 │   ├── dnse                                    # Provider DNSE
 │   ├── fmarket                                 # Provider Fmarket
-│   ├── ssi
-│   ├── tcbs
-│   ├── vdsc
-│   ├── wifeed
+│   ├── ssi                                     # Provider SSI
+│   ├── tcbs                                    # Provider TCBS
+│   ├── vdsc                                    # Provider VDSC Rong Viet
+│   ├── wifeed                                  # Provider WiFeed
 │   └── __init__.py
 ├── utils                                       # Utility functions used in the package
 │   ├── __init__.py
 │   ├── errors.py                               # Custom exceptions
-│   └── helpers.py                              # Utility functions
+│   └── helpers.py                              # Helpers functions
 ├── __init__.py
 └── py.typed                                    # Dummy file to enable static type hints
 ```
