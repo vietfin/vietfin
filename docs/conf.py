@@ -37,6 +37,7 @@ extensions = [
     # "sphinx.ext.todo",
     # "sphinx.ext.autosummary",
     # Third-party extensions
+    "sphinxcontrib.mermaid",  # embed Mermaid graphs
     "myst_parser",  # parse markdown files
     # "myst_nb",  # parse ipynb files
     "nbsphinx",  # works with Shibuya theme better than myst-nb
@@ -46,7 +47,6 @@ extensions = [
     # "sphinx-hoverxref",  # show a floating window (tooltips or modal dialogues) on the cross references 
     # "autoapi.extension",  # parse source code and docstrings to create an API reference sheet
     # "autodoc2",  # replace sphinx.ext.autodoc
-    "sphinxcontrib.mermaid"  # embed Mermaid graphs
 ]
 
 exclude_patterns = ['_build', 'build', 'Thumbs.db', '.DS_Store']
@@ -69,6 +69,9 @@ mermaid_cmd_shell = True
 
 # Force the output for Mermaid diagram as svg when building HTML files
 mermaid_output_format = "raw"
+
+# disable nbsphinx from loading RequireJS. Without this option, nbsphinx breaks sphinxcontrib-mermaid to not render mermaid diagram as raw html
+nbsphinx_requirejs_path = ''
 
 # -- Options for extlinks ----------------------------------------------------
 
