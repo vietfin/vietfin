@@ -28,7 +28,7 @@ release = version
 # -- General configuration ----------------------------------------------------
 
 extensions = [
-    # Sphinx's own extensions
+# Sphinx's own extensions
     # "sphinx.ext.autodoc",  # integrate function signatures and docstring from code base into docs
     "sphinx.ext.napoleon",  # enables sphinx to parse numpydoc style docstrings
     "sphinx.ext.viewcode",  # adds a helpful link to the source code of each object in the API reference sheet
@@ -36,7 +36,7 @@ extensions = [
     "sphinx.ext.extlinks",  # shorten external links that point to URLs on one and the same site
     # "sphinx.ext.todo",
     # "sphinx.ext.autosummary",
-    # Third-party extensions
+# Third-party extensions
     "sphinxcontrib.mermaid",  # embed Mermaid graphs
     "myst_parser",  # parse markdown files
     # "myst_nb",  # parse ipynb files
