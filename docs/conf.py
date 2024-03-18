@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information ------------------------------------------------------
 
 project = "VietFin"
-copyright = "Copyright &copy; 2023-2024, Huy"
+copyright = "Copyright &copy; 2023, Huy"
 author = "Huy"
 
 version = vietfin.__version__
@@ -64,10 +64,11 @@ myst_fence_as_directive = ["mermaid"]
 
 # -- Options for sphinxcontrib.mermaid ----------------------------------------------------
 
-mermaid_cmd = "C:\\Users\\huytr\\AppData\\Roaming\\npm\\mmdc.cmd"
-mermaid_cmd_shell = True
+# # Enable the use of mermaid-cli to render mermaid diagram as svg/png format
+# mermaid_cmd = "C:\\Users\\huytr\\AppData\\Roaming\\npm\\mmdc.cmd"
+# mermaid_cmd_shell = True
 
-# Force the output for Mermaid diagram as svg when building HTML files
+# Force the output for Mermaid diagram as raw-html/svg/png when building HTML files
 mermaid_output_format = "raw"
 
 # disable nbsphinx from loading RequireJS. Without this option, nbsphinx breaks sphinxcontrib-mermaid to not render mermaid diagram as raw html

@@ -16,12 +16,12 @@ Get the list of all available funds, using default parameters: ``provider`` (Fma
 Parameters
 ----------
 
-============ ====== =============================================== =============== ============= 
- param_name   type   description                                     default_value   is_required  
-============ ====== =============================================== =============== ============= 
- symbol       str    Symbol to get data for.                         ""              FALSE         
- provider     str    The provider to use for the query               fmarket         FALSE        
-============ ====== =============================================== =============== ============= 
+============ ========= =============================================== =============== ============= 
+ param_name   type      description                                     default_value   is_required  
+============ ========= =============================================== =============== ============= 
+ symbol       str       Symbol to get data for.                         ""              FALSE         
+ provider     Literal   The provider to use for the query               fmarket         FALSE        
+============ ========= =============================================== =============== =============
 
 Returns
 -------

@@ -16,12 +16,12 @@ Get the holdings of fund VESAF, using default parameters: ``provider`` (Fmarket)
 Parameters
 ----------
 
-============ ====== =============================================== =============== ============= 
- param_name   type   description                                     default_value   is_required  
-============ ====== =============================================== =============== ============= 
- symbol       str    Symbol to get data for.                                         TRUE         
- provider     str    The provider to use for the query               fmarket         FALSE        
-============ ====== =============================================== =============== ============= 
+============ ========= =============================================== =============== ============= 
+ param_name   type      description                                     default_value   is_required  
+============ ========= =============================================== =============== ============= 
+ symbol       str       Symbol to get data for.                                         TRUE         
+ provider     Literal   The provider to use for the query               fmarket         FALSE        
+============ ========= =============================================== =============== =============
 
 Returns
 -------

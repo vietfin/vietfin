@@ -122,12 +122,12 @@ Feel free to reach out to us in [our GitHub Discussions](https://github.com/viet
 
 VietFin is built on top of the inspiration and work of the following projects:
 
-- [Openbb](https://github.com/OpenBB-finance/OpenBBTerminal), its [Data Standardization Infrastructure](https://docs.openbb.co/platform/development/developer-guidelines/architectural_considerations) and the [hierarchical structure](https://docs.openbb.co/platform/reference) of user-facing commands.
+- [Openbb](https://github.com/OpenBB-finance/OpenBBTerminal), its [Data Standardization Infrastructure](https://docs.openbb.co/platform/development/developer-guidelines/architectural_considerations), the hierarchical structure of user-facing commands, and the documentation style of [OpenBB Platform's API reference](https://docs.openbb.co/platform/reference).
 - [vnstock](https://github.com/thinh-vu/vnstock) and its findinds on publicly available APIs from brokerage firms in Vietnam.
 
 ## 6. Disclaimer
 
-VietFin is not affiliated, endorsed, or vetted by any of the brokerage firms or research entities which provide the data. It's an open-source tool which crawl data from the publicly available APIs of these firms. VietFin is intended for personal use, research and educational purposes.
+VietFin is not affiliated, endorsed, or vetted by any of the brokerage firms or research entities which provide the data. It's an open-source tool which fetches data from the publicly available APIs of these firms. VietFin is intended for personal use, research and educational purposes.
 
 You should refer to each of the data provider's terms of use for details on your rights to use the actual data downloaded.
 
@@ -137,4 +137,4 @@ VietFin and any provider of the data contained in this website will not accept l
 
 ## 7. Contacts
 
-If you have any questions about `VietFin` or just to say hi, feel free to leave your message by [opening a new public discussion in GitHub](https://github.com/vietfin/vietfin/discussions/new/choose), or send an email to `vietfin.numbness179(at)simplelogin.fr`.
+If you have any questions about `VietFin` or just to say hi, feel free to [open a new public discussion in our GitHub repo](https://github.com/vietfin/vietfin/discussions/new/choose), or send an email to `vietfin.numbness179(at)simplelogin.fr`.

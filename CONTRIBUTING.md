@@ -85,7 +85,7 @@ You can also suggest to edit a single page of the docs, simply by clicking the `
 
 The `./tests` folder contains the main VietFin test suite.
 
-At the moment, the test suite contains only unit tests. These tests assert that all VietFin functionality work as intended with default parameters. Read the [Testing Guidelines](/tests/README.md) for more details.
+At the moment, the test suite contains only unit tests. These tests assert that all VietFin functionality work as intended with default parameters. Read the [Testing Guidelines](https://github.com/vietfin/vietfin/blob/dev/tests/README.md) for more details.
 
 ## Versioning
 
@@ -231,9 +231,9 @@ In combination of 3 layers, take an example with the component `Funds` of `VietF
 - The real/concrete implementation of the data fetching from provider Fmarket is in the `FundsFmarket` class.
 - The data standardized model is the `FmarketFundInfoData` class and its peers, which is located in `/vietfin/providers/fmarket/models/`.
 
-## Codebase Class Diagram
+## Codebase Structure
 
-I followed the [six types of relationships in UML class diagrams](https://blog.visual-paradigm.com/what-are-the-six-types-of-relationships-in-uml-class-diagrams/) and [mermaid.js class diagrams syntax](https://mermaid.js.org/syntax/classDiagram.html) to create this class diagram. I expect that it gives a good bird-eye view of the codebase.
+I followed the [six types of relationships in UML class diagrams](https://blog.visual-paradigm.com/what-are-the-six-types-of-relationships-in-uml-class-diagrams/) and [mermaid.js class diagrams syntax](https://mermaid.js.org/syntax/classDiagram.html) to create this class diagram, which is expected to give a good bird-eye view of the codebase.
 
 ```mermaid
 ---
@@ -596,14 +596,7 @@ classDiagram
     Index <-- IndexPrice
 ```
 
-Based on this codebase's structure, when I want to add a new asset type (e.g. Etf), I need to:
-- Create a new abstract interface for the new asset type. E.g. `class IEtf` in `/abstract/interface.py`
-- Create a new Factory class to represent the concrete implementation of the new asset type. E.g. `class EtfFactory` in `/abstract/factory.py`
-- Create a new concrete implementation of the new asset type and its data provider. E.g. `class EtfSsi`in the appropriate `/providers/new_provider/provider.py`
-- Create client code linked to the new Factory class. E.g. `class Etf` in `/components/etf.py`
-- Initialize the new asset class in the `VietFin` class. E.g. `self.etf = Etf()` in `src/vietfin/__init__.py`
-
-## Directory structure
+Directory structure
 
 ```text
 .
@@ -643,3 +636,11 @@ Based on this codebase's structure, when I want to add a new asset type (e.g. Et
 ├── __init__.py
 └── py.typed                                    # Dummy file to enable static type hints
 ```
+
+Based on this codebase's structure, when I want to add a new asset type (e.g. Etf), I need to:
+
+- Create a new abstract interface for the new asset type. E.g. `class IEtf` in `/abstract/interface.py`
+- Create a new Factory class to represent the concrete implementation of the new asset type. E.g. `class EtfFactory` in `/abstract/factory.py`
+- Create a new concrete implementation of the new asset type and its data provider. E.g. `class EtfSsi`in the appropriate `/providers/new_provider/provider.py`
+- Create client code linked to the new Factory class. E.g. `class Etf` in `/components/etf.py`
+- Initialize the new asset class in the `VietFin` class. E.g. `self.etf = Etf()` in `/__init__.py`

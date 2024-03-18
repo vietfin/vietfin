@@ -93,7 +93,7 @@ Current list of commands and its equivalent functions in [OpenBB Platform](https
             - example: vf.equity.derivatives.futures.quote(symbol='VN30F2402')
     - Options
         - chains() [ref](https://docs.openbb.co/platform/reference/derivatives/options/chains)
-        - NOTE: 20240214 Vietnam does not support options contract yet
+        - NOTE: 20240214 Vietnam has not supported options contract yet
 - Mutual Funds [ref](https://docs.openbb.co/terminal/menus/mutualfunds)
     - [x] search()
         - search for a mutual funds via its symbol.
@@ -112,12 +112,12 @@ Current list of commands and its equivalent functions in [OpenBB Platform](https
         - get historical price of a ETF.
         - example: vf.etf.historical(symbol='E1VFVN30')
     - holdings() [ref](https://docs.openbb.co/platform/reference/etf/holdings)
-        - params: symbol, provider.
+        - get top holdings of an ETF.
         - example: vf.funds.holdings(symbol='E1VFVN30')
     - Discovery [ref](https://docs.openbb.co/platform/reference/etf/discovery)
-        - active() [ref](https://docs.openbb.co/platform/reference/etf/discovery/active)
-        - gainers() [ref](https://docs.openbb.co/platform/reference/etf/discovery/gainers)
-        - losers() [ref](https://docs.openbb.co/platform/reference/etf/discovery/losers)
+        - [] active() [ref](https://docs.openbb.co/platform/reference/etf/discovery/active)
+        - [] gainers() [ref](https://docs.openbb.co/platform/reference/etf/discovery/gainers)
+        - [] losers() [ref](https://docs.openbb.co/platform/reference/etf/discovery/losers)
 - Index
     - [x] search() [ref](https://docs.openbb.co/platform/reference/index/search)
         - search for an index via its symbol.

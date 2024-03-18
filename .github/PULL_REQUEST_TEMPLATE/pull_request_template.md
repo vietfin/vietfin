@@ -14,23 +14,21 @@
 - Please provide instructions so we can reproduce.
 - Please also list any relevant details for your test configuration.
 
-- [ ] Ensure all unit and integration tests pass.
+- [ ] Ensure all unit tests pass.
 - If you modified/added command(s):
   - [ ] Ensure the command(s) execute with the expected output.
-    - [ ] Python Interface.
-  - [ ] If applicable, please add new tests for the command (see [CONTRIBUTING.md](/openbb_platform/CONTRIBUTING.md) to leverage semi-automated testing).
+  - [ ] If applicable, please add new tests for the command (see [CONTRIBUTING.md](/CONTRIBUTING.md) to leverage semi-automated testing).
 - If a new provider was introduced or a new fetcher was added to an existing provider:
   - [ ] Ensure the existing tests pass.
   - [ ] Ensure the new provider and/or fetcher is stable and usable.
-  - [ ] If applicable, please add new tests for the provider and/or fetcher (see [CONTRIBUTING.md](/openbb_platform/CONTRIBUTING.md) to leverage semi-automated testing).
+  - [ ] If applicable, please add new tests for the provider and/or fetcher (see [CONTRIBUTING.md](/CONTRIBUTING.md) to leverage semi-automated testing).
 - If a new provider or component was added:
-  - [ ] Update the list of [Components](/openbb_platform/EXTENSIONS.md).
-  - [ ] Update the list of [Providers](/openbb_platform/PROVIDERS.md).
+  - [ ] Update the list of `Implemented Components and Data Providers` in [/docs/reference/index.rst](/docs/reference/index.rst).
 
 ## Checklist
 
 - [ ] I have performed a self-review of my own code.
 - [ ] I have commented my code, particularly in hard-to-understand areas.
 - [ ] I have adhered to the [GitFlow naming convention](https://leanpub.com/git-flow/read) and my branch name is in the format of `feat/feature-name` or `fix/hotfix-name`.
-- [ ] I ensure that I am following the [CONTRIBUTING guidelines](https://github.com/OpenBB-finance/OpenBBTerminal/blob/main/CONTRIBUTING.md).
-  - [ ] (If applicable) I have updated tests following [these guidelines](/openbb_platform/CONTRIBUTING.md#qa-your-extension).
+- [ ] I ensure that I am following the [CONTRIBUTING guidelines](/CONTRIBUTING.md).
+  - [ ] (If applicable) I have updated tests following [TESTING guidelines](/tests/README.md).

@@ -16,14 +16,14 @@ Get historical price of ticker VESAF, using default parameters: ``provider`` (Fm
 Parameters
 ----------
 
-============ ====== =============================================== =============== ============= 
- param_name   type   description                                     default_value   is_required  
-============ ====== =============================================== =============== ============= 
- symbol       str    Symbol to get data for.                                         TRUE         
- start_date   str    Start date of the data, in YYYY-MM-DD format.   None            FALSE        
- end_date     str    End date of the data, in YYYY-MM-DD format.     None            FALSE        
- provider     str    The provider to use for the query               fmarket         FALSE        
-============ ====== =============================================== =============== ============= 
+============ ========= =============================================== =============== ============= 
+ param_name   type      description                                     default_value   is_required  
+============ ========= =============================================== =============== ============= 
+ symbol       str       Symbol to get data for.                                         TRUE         
+ start_date   str       Start date of the data, in YYYY-MM-DD format.   None            FALSE        
+ end_date     str       End date of the data, in YYYY-MM-DD format.     None            FALSE        
+ provider     Literal   The provider to use for the query               fmarket         FALSE        
+============ ========= =============================================== =============== ============= 
 
 Returns
 -------
