@@ -29,11 +29,15 @@ Parameters
 Data Model
 ----------
 
-========================== ========== ======================================================= 
- field_name                 type       description                                            
-========================== ========== ======================================================= 
- symbol                     str        Symbol representing the entity requested in the data.  
- dividend_type              str        Type of the dividend, i.e. "cash", "stock".                
- payment_date               datetime   The payment date of the dividend.                      
- cash_dividend_percentage   float      NOTE: I don't know the description of this field.      
-========================== ========== ======================================================= 
+.. tab-set::
+
+    .. tab-item:: TCBS
+
+        ========================== ========== ======================================================= 
+         field_name                 type       description                                            
+        ========================== ========== ======================================================= 
+         symbol                     str        Symbol representing the entity requested in the data.  
+         dividend_type              str        Type of the dividend, i.e. "cash", "stock".                
+         payment_date               datetime   The payment date of the dividend.                      
+         cash_dividend_percentage   float      NOTE: I don't know the description of this field.      
+        ========================== ========== ======================================================= 

@@ -4,6 +4,7 @@ import pandas as pd
 import pytest
 
 from vietfin import vf
+from .utils import assert_run_success as ars
 
 
 def test_search_with_default_params():
@@ -34,12 +35,7 @@ def test_search_with_valid_params(symbol, provider):
     """Test search() method in Funds class with valid params."""
 
     result = vf.funds.search(symbol=symbol, provider=provider)
-    
-    # Assert correct provider name
-    assert result.provider == provider
-    
-    # Assert correct symbol name retured from query
-    assert result.extra.get("symbol") == symbol
+    ars(result, symbol, provider)
 
 
 @pytest.mark.parametrize(
@@ -53,8 +49,7 @@ def test_historical_with_valid_params(symbol, provider):
     """Test historical() method in Funds class with valid params."""
 
     result = vf.funds.historical(symbol=symbol, provider=provider)
-    assert result.provider == provider
-    assert len(result.results) > 0
+    ars(result, symbol, provider)
 
 
 @pytest.mark.parametrize(
@@ -68,5 +63,4 @@ def test_holdings_with_valid_params(symbol, provider):
     """Test holdings() method in Funds class with valid params."""
 
     result = vf.funds.holdings(symbol=symbol, provider=provider)
-    assert result.provider == provider
-    assert len(result.results) > 0
+    ars(result, symbol, provider)

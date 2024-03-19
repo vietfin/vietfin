@@ -33,7 +33,7 @@ Credit: [yfinance](https://github.com/ranaroussi/yfinance/discussions/1084)
 
 ### Work on an issue
 
-Pick or suggest an issue, by going through the issue tracker, which you would like to work on. 
+Pick or suggest an issue, by going through the [issue tracker](https://github.com/vietfin/vietfin/issues), which you would like to work on. 
 
 Setup your local development environment. Then start coding.
 
@@ -64,7 +64,7 @@ When you have resolved your issue, open a pull request (PR) in the VietFin repos
 - Stage the files you want to commit. E.g. `git add src/vietfin/funds/funds.py`
 - Write a concise commit message under 50 characters. E.g. `git commit -m "feat: add AmazingFeature"`
 - Push your changes to the appropriate branch in your fork. E.g. `git push origin feat/AmazingFeature`
-- Go to your GitHub, then open a PR in the VietFin repository
+- Go to your [GitHub](https://github.com/), then open a PR in the VietFin repository
 
 ## Contributing to documentation
 
@@ -79,13 +79,13 @@ If you want to modify/add documentation and see how changes will be rendered, yo
 - Install poetry. E.g. `conda install poetry`
 - Install dependencies with optional dependency group `docs` for writing docs purposes. E.g. `poetry install --with docs`
 
-You can also suggest to edit a single page of the docs, simply by clicking the `Edit this page` button on the right side bar of the docs page. This will open a GitHub page where you can edit the page and submit a PR to the VietFin repository.
+You can also suggest to edit a single page of the docs, simply by clicking the `Edit this page` button on the right side bar of the VietFin docs page. This will open a GitHub website where you can edit the single docs page and submit a PR to the VietFin repository.
 
 ## Test suite
 
 The `./tests` folder contains the main VietFin test suite.
 
-At the moment, the test suite contains only unit tests. These tests are intended to make sure all VietFin functionality work as intended.
+At the moment, the test suite contains only unit tests. These tests assert that all VietFin functionality work as intended with default parameters. Read the [Testing Guidelines](https://github.com/vietfin/vietfin/blob/dev/tests/README.md) for more details.
 
 ## Versioning
 
@@ -95,9 +95,9 @@ VietFin adheres to the [semantic versioning](https://semver.org/) specification.
 
 ## Codebase structure
 
-The codebase is structured as 3 layers:
+At high level, the codebase is structured as 3 layers:
 
-The 1st layer, "Facade", is a recreation of the [hierarchical structure](https://docs.openbb.co/platform/reference) of the user-facing commands of OpenBB. It includes the dummy class `VietFin`, and its components (i.e. `Funds`, `Equity`, `EquityPrice`, etc.). The word "Facade" coming from [Facade Design Pattern](https://faun.pub/design-patterns-in-python-facade-pattern-4f495746301d).
+The 1st layer, "Facade", is a recreation of the [OpenBB's hierarchical structure](https://docs.openbb.co/platform/reference) for user-facing commands. It includes a "wrapper" class named `VietFin`, and its components (i.e. `Funds`, `Equity`, `EquityPrice`, etc.). The word "Facade" coming from [Facade Design Pattern](https://faun.pub/design-patterns-in-python-facade-pattern-4f495746301d).
 
 ```mermaid
 ---
@@ -189,31 +189,41 @@ classDiagram
     }
 
     class FmarketFundInfoData {
-        -fund_id: int
-        -short_name: str
-        -name: str
-        -inception_date: ValidatedDatetime | None
-        -management_fee: float | None
-        -nav: float | None
-        -fund_owner: FmarketFundOwnerData | T | None
-        -fund_type: FmarketFundTypesData | T | None
+        +fund_id: int
+        +short_name: str
+        +name: str
+        +inception_date: ValidatedDatetime | None
+        +management_fee: float | None
+        +nav: float | None
+        +fund_owner: FmarketFundOwnerData | T | None
+        +fund_type: FmarketFundTypesData | T | None
     }
     class FmarketFundHoldingsData {
-        -stock_code: str
-        -industry: str
-        -net_asset_percent: float
-        -type_asset: str
-        -update_at: ValidatedDatetime | None
+        +stock_code: str
+        +industry: str
+        +net_asset_percent: float
+        +type_asset: str
+        +update_at: ValidatedDatetime | None
     }
     class FmarketFundHistoricalNavData {
-        -date: str
-        -nav_per_share: float
-        -fund_id: int
+        +date: str
+        +nav_per_share: float
+        +fund_id: int
     }
 
     FundsFmarket <-- FmarketFundInfoData
     FundsFmarket <-- FmarketFundHoldingsData
     FundsFmarket <-- FmarketFundHistoricalNavData
+
+    class Data {
+        <<abstract>>
+        -__alias_dict__: Dict[str, str]
+        -model_config: ConfigDict
+    }
+
+    Data <-- FmarketFundInfoData
+    Data <-- FmarketFundHoldingsData
+    Data <-- FmarketFundHistoricalNavData
 ```
 
 In combination of 3 layers, take an example with the component `Funds` of `VietFin` package.
@@ -221,9 +231,9 @@ In combination of 3 layers, take an example with the component `Funds` of `VietF
 - The real/concrete implementation of the data fetching from provider Fmarket is in the `FundsFmarket` class.
 - The data standardized model is the `FmarketFundInfoData` class and its peers, which is located in `/vietfin/providers/fmarket/models/`.
 
-## Codebase Class Diagram
+## Codebase Structure
 
-I followed the [six types of relationships in UML class diagrams](https://blog.visual-paradigm.com/what-are-the-six-types-of-relationships-in-uml-class-diagrams/) and [mermaid.js class diagrams syntax](https://mermaid.js.org/syntax/classDiagram.html) to create this class diagram. I expect that it gives a good bird-eye view of the codebase.
+I followed the [six types of relationships in UML class diagrams](https://blog.visual-paradigm.com/what-are-the-six-types-of-relationships-in-uml-class-diagrams/) and [mermaid.js class diagrams syntax](https://mermaid.js.org/syntax/classDiagram.html) to create this class diagram, which is expected to give a good bird-eye view of the codebase.
 
 ```mermaid
 ---
@@ -586,14 +596,7 @@ classDiagram
     Index <-- IndexPrice
 ```
 
-Based on this codebase's structure, when I want to add a new asset type (e.g. Etf), I need to:
-- Create a new abstract interface for the new asset type. E.g. `class IEtf` in `/abstract/interface.py`
-- Create a new Factory class to represent the concrete implementation of the new asset type. E.g. `class EtfFactory` in `/abstract/factory.py`
-- Create a new concrete implementation of the new asset type and its data provider. E.g. `class EtfSsi`in the appropriate `/providers/new_provider/provider.py`
-- Create client code linked to the new Factory class. E.g. `class Etf` in `/components/etf.py`
-- Initialize the new asset class in the `VietFin` class. E.g. `self.etf = Etf()` in `src/vietfin/__init__.py`
-
-## Directory structure
+Directory structure
 
 ```text
 .
@@ -609,27 +612,35 @@ Based on this codebase's structure, when I want to add a new asset type (e.g. Et
 │   └── ...
 ├── providers                                   # The functions and data model which crawl data from each data provider
 │   ├── cafef                                   # Provider CafeF
-│   │   ├── models                              # Data models used in the provider
+│   │   ├── models                              # Data models used in the provider CafeF
 │   │   │   ├── __init__.py
 │   │   │   ├── equity_ownership_foreign.py
 │   │   │   └── ...
-│   │   ├── utils                               # Functions used to crawl data from the provider
+│   │   ├── utils                               # Functions used to crawl data from the provider CafeF
 │   │   │   ├── equity_ownership_foreign.py
 │   │   │   ├── ...
 │   │   │   └── helpers.py
 │   │   ├── __init__.py
-│   │   └── provider.py                         # The concrete implementation of the provider 
+│   │   └── provider.py                         # The concrete implementation of the provider CafeF
 │   ├── dnse                                    # Provider DNSE
 │   ├── fmarket                                 # Provider Fmarket
-│   ├── ssi
-│   ├── tcbs
-│   ├── vdsc
-│   ├── wifeed
+│   ├── ssi                                     # Provider SSI
+│   ├── tcbs                                    # Provider TCBS
+│   ├── vdsc                                    # Provider VDSC Rong Viet
+│   ├── wifeed                                  # Provider WiFeed
 │   └── __init__.py
 ├── utils                                       # Utility functions used in the package
 │   ├── __init__.py
 │   ├── errors.py                               # Custom exceptions
-│   └── helpers.py                              # Utility functions
+│   └── helpers.py                              # Helpers functions
 ├── __init__.py
 └── py.typed                                    # Dummy file to enable static type hints
 ```
+
+Based on this codebase's structure, when I want to add a new asset type (e.g. Etf), I need to:
+
+- Create a new abstract interface for the new asset type. E.g. `class IEtf` in `/abstract/interface.py`
+- Create a new Factory class to represent the concrete implementation of the new asset type. E.g. `class EtfFactory` in `/abstract/factory.py`
+- Create a new concrete implementation of the new asset type and its data provider. E.g. `class EtfSsi`in the appropriate `/providers/new_provider/provider.py`
+- Create client code linked to the new Factory class. E.g. `class Etf` in `/components/etf.py`
+- Initialize the new asset class in the `VietFin` class. E.g. `self.etf = Etf()` in `/__init__.py`
