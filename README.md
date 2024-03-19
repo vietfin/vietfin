@@ -8,7 +8,7 @@
 
 <p align="center">
     <a href="https://github.com/vietfin/vietfin/blob/main/LICENSE"><img src="https://img.shields.io/github/license/vietfin/vietfin?style=for-the-badge" alt="License"></a>
-    <a href='https://vietfin.readthedocs.io/en/latest/?badge=latest'><img src='https://readthedocs.org/projects/vietfin/badge/?version=latest' alt='Documentation Status' /></a>
+    <a href='https://vietfin.readthedocs.io/en/latest/?badge=latest'><img src='https://readthedocs.org/projects/vietfin/badge/?version=latest?style=for-the-badge' alt='Documentation Status' /></a>
     <br />
     <a href="http://vietfin.readthedocs.io/" target="_blank" rel="noopener noreferrer"><strong>» Explore the docs »</strong></a>
     <br />
