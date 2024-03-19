@@ -23,7 +23,7 @@
   - [ ] Ensure the new provider and/or fetcher is stable and usable.
   - [ ] If applicable, please add new tests for the provider and/or fetcher (see [CONTRIBUTING.md](/CONTRIBUTING.md) to leverage semi-automated testing).
 - If a new provider or component was added:
-  - [ ] Update the list of `Implemented Components and Data Providers` in [/docs/reference/index.rst](/docs/reference/index.rst).
+  - [ ] Update the list of `Implemented Components and Data Providers` in the [Reference page](/docs/reference/index.rst) of the documentation.
 
 ## Checklist
 
