@@ -13,6 +13,15 @@ import requests
 
 from vietfin.abstract.data import Data
 
+# Constants
+
+INTERVALS = Literal["1m", "15m", "30m", "1h", "1d"]
+FINANCIAL_STATEMENTS = Literal["income", "balance", "cash"]
+PERIODS = Literal["annual", "quarter"]
+TOP_MOVERS_REPORT_NAMES = Literal["gainers", "losers", "value"]
+EXCHANGE_NAMES = Literal["hose", "hnx", "upcom", "all"]
+
+# Helper functions
 
 def to_snake_case(string: str) -> str:
     """Convert a string to snake case."""
@@ -255,27 +264,26 @@ class BaseDateParams(BaseModel):
         return self
 
 
-INTERVALS = Literal["1m", "15m", "30m", "1h", "1d"]
-FINANCIAL_STATEMENTS = Literal["income", "balance", "cash"]
-PERIODS = Literal["annual", "quarter"]
-
-
 class BaseOtherParams(BaseModel):
     """Base class to validate other params (not start_date end_date) in function.
 
     Base validation rules:
-    - symbol must be a string
-    - limit must be an integer. Set to default as 100, if not provided
+    - symbol must be a string. Set to default as "" an empty string, if not provided
+    - limit must be an integer. Set to default as 100
     - interval must be in Literal. Set to default as "1d"
     - financial_statement must be in Literal. Set to default as "income"
     - period must be in Literal. Set to default as "annual"
+    - top_movers_report must be in Literal. Set to default as "value"
+    - exchange must be in Literal. Set to default as "hose"
     """
 
-    symbol: str
+    symbol: str = ""
     limit: int = 100
     interval: INTERVALS = "1d"
     financial_statement: FINANCIAL_STATEMENTS = "income"
     period: PERIODS = "annual"
+    top_movers_report: TOP_MOVERS_REPORT_NAMES = "value"
+    exchange: EXCHANGE_NAMES = "hose"
 
     @field_validator("symbol")
     @classmethod

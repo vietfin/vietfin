@@ -26,8 +26,8 @@ Parameters
  provider     Literal    The provider to use for the query               tcbs            FALSE        
 ============ ========== =============================================== =============== ============= 
 
-Returns
--------
+Data Model
+----------
 
 .. tab-set::
 
@@ -56,3 +56,8 @@ Returns
          close        float               The close price.       
          volume       int                 The trading volume.    
         ============ =================== =======================
+
+Data Sources
+------------
+
+- DNSE: `banggia.dnse.com.vn <https://banggia.dnse.com.vn/>`_

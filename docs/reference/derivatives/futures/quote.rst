@@ -63,3 +63,8 @@ Data Model
          floor_price         float   The lowest price level at which a futures contract or security is allowed to trade  
          am_pm               str     Indicates whether it is the morning (AM) or afternoon (PM) trading session          
         =================== ======= ==================================================================================== 
+
+Data Sources
+------------
+
+- VDSC Rong Viet: `livedragon.vdsc.com.vn <https://livedragon.vdsc.com.vn/fos/fos.rv>`_

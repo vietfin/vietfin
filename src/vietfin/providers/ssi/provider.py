@@ -14,12 +14,11 @@ from vietfin.providers.ssi.utils.equity_search import search as equity_search
 from vietfin.providers.ssi.utils.index_search import search as index_search
 from vietfin.providers.ssi.utils.equity_discovery import (
     get_top_movers,
-    EXCHANGE_NAMES,
 )
 from vietfin.providers.ssi.utils.etf_search import search as etf_search
 from vietfin.providers.ssi.utils.etf_historical import historical
 from vietfin.providers.ssi.utils.index_constituents import constituents
-from vietfin.utils.helpers import PERIODS
+from vietfin.utils.helpers import PERIODS, EXCHANGE_NAMES
 from vietfin.providers.ssi.utils.equity_fundamental_income import get_financial_report
 
 
@@ -67,15 +66,15 @@ class EquityDiscoverySsi(IEquityDiscovery):
 
     def active(self, exchange: EXCHANGE_NAMES) -> VfObject:
         """Equity Discovery Active. Load the list of most active stocks based on trading value."""
-        return get_top_movers(name="Value", exchange=exchange)
+        return get_top_movers(name="value", exchange=exchange)
 
     def gainers(self, exchange: EXCHANGE_NAMES) -> VfObject:
         """Equity Discovery Gainers. Load the list of top gainer stocks."""
-        return get_top_movers(name="Gainers", exchange=exchange)
+        return get_top_movers(name="gainers", exchange=exchange)
 
     def losers(self, exchange: EXCHANGE_NAMES) -> VfObject:
         """Equity Discovery Losers. Load the list of top loser stocks."""
-        return get_top_movers(name="Losers", exchange=exchange)
+        return get_top_movers(name="losers", exchange=exchange)
     
 
 class EquityFundamentalSsi(IEquityFundamental):

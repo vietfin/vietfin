@@ -27,8 +27,8 @@ Parameters
  provider     Literal           The provider to use for the query.           ssi             FALSE         
 ============ ================= ============================================ =============== ============= 
 
-Returns
--------
+Data Model
+----------
 
 .. tab-set::
 

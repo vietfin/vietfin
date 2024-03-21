@@ -641,6 +641,17 @@ Based on this codebase's structure, when I want to add a new asset type (e.g. Et
 
 - Create a new abstract interface for the new asset type. E.g. `class IEtf` in `/abstract/interface.py`
 - Create a new Factory class to represent the concrete implementation of the new asset type. E.g. `class EtfFactory` in `/abstract/factory.py`
-- Create a new concrete implementation of the new asset type and its data provider. E.g. `class EtfSsi`in the appropriate `/providers/new_provider/provider.py`
+- Create a new concrete implementation of the new asset type and its data provider. E.g. `class EtfProvider` in the appropriate `/providers/provider_name/provider.py`
 - Create client code linked to the new Factory class. E.g. `class Etf` in `/components/etf.py`
 - Initialize the new asset class in the `VietFin` class. E.g. `self.etf = Etf()` in `/__init__.py`
+
+Similarly, when I want to add a new command to an existing asset type, I need to:
+- Create a new method in the abtract interface of the asset type. E.g. `new_method()` in `class IEtf` in `/abstract/interface.py`
+- Implement this new method in the concrete implementation of the asset type. E.g. `new_method()` in `class EtfProvider` in the appropriate `/providers/provider_name/provider.py`
+- Create a new function and new data model to be called by the new command. E.g. `get_data_new_method()` in `/providers/provider_name/utils/new_method.py` and `new_data_model` in `/providers/provider_name/utils/new_data_model.py`
+
+When I want to add a new data provider for existing asset type, I need to:
+- Create a new concrete implementation of the new data provider. E.g. `class EtfProvider` in the appropriate `/providers/provider_name/provider.py`
+- Add this new concrete implementation to the Factory class. E.g. `providers_implementations` in `class EtfFactory` in `/abstract/factory.py`
+
+NOTE: This approach is not DRY. I'm open to suggestions to improve the codebase.

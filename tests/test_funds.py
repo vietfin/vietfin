@@ -31,36 +31,20 @@ def test_search_with_default_params():
         ("VIBF", "fmarket"),
     ],
 )
-def test_search_with_valid_params(symbol, provider):
-    """Test search() method in Funds class with valid params."""
+class TestFunds:
+    """Test funds.*() commands with default params."""
 
-    result = vf.funds.search(symbol=symbol, provider=provider)
-    ars(result, symbol, provider)
+    def test_search_with_valid_params(self, symbol, provider):
+        """Test search() method in Funds class with valid params."""
+        result = vf.funds.search(symbol=symbol, provider=provider)
+        ars(result, symbol, provider)
 
+    def test_historical_with_valid_params(self, symbol, provider):
+        """Test historical() method in Funds class with valid params."""
+        result = vf.funds.historical(symbol=symbol, provider=provider)
+        ars(result, symbol, provider)
 
-@pytest.mark.parametrize(
-    "symbol, provider",
-    [
-        ("VESAF", "fmarket"),
-        ("VIBF", "fmarket"),
-    ],
-)
-def test_historical_with_valid_params(symbol, provider):
-    """Test historical() method in Funds class with valid params."""
-
-    result = vf.funds.historical(symbol=symbol, provider=provider)
-    ars(result, symbol, provider)
-
-
-@pytest.mark.parametrize(
-    "symbol, provider",
-    [
-        ("VESAF", "fmarket"),
-        ("VIBF", "fmarket"),
-    ],
-)
-def test_holdings_with_valid_params(symbol, provider):
-    """Test holdings() method in Funds class with valid params."""
-
-    result = vf.funds.holdings(symbol=symbol, provider=provider)
-    ars(result, symbol, provider)
+    def test_holdings_with_valid_params(self, symbol, provider):
+        """Test holdings() method in Funds class with valid params."""
+        result = vf.funds.holdings(symbol=symbol, provider=provider)
+        ars(result, symbol, provider)

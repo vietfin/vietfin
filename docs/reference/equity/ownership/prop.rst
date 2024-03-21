@@ -45,3 +45,8 @@ Data Model
          ask_value    int    Ask value. Giá trị bán bởi khối tự doanh của các cty chứng khoán      
          symbol       str    The stock ticker                                                      
         ============ ====== ====================================================================== 
+
+Data Sources
+------------
+
+- CafeF: `s.cafef.vn <https://s.cafef.vn/lich-su-giao-dich-vnindex-4.chn#data>`_
