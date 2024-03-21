@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "vietfin"
-version = "0.1.0"
+version = "0.2.0"
 description = "Python package to fetch Vietnam stock market data"
 authors = ["Huy <vietfin.numbness179@simplelogin.fr>"]
 license = "Apache-2.0"
