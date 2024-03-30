@@ -43,6 +43,7 @@ from vietfin.providers.tcbs.provider import (
 from vietfin.providers.vdsc.provider import DerivativesFuturesVdsc
 from vietfin.providers.cafef.provider import EquityOwnershipCafef
 from vietfin.providers.vndirect.provider import EquityDiscoveryVndirect
+from vietfin.providers.ssi.provider import DerivativesFuturesSsi
 
 
 class FundsFactory:
@@ -209,6 +210,7 @@ class DerivativesFuturesFactory:
     providers_implementations = {
         "vdsc": DerivativesFuturesVdsc(),
         "tcbs": DerivativesFuturesTcbs(),
+        "ssi": DerivativesFuturesSsi(),
     }
 
     def get_provider(self, provider: str) -> IDerivativesFutures:

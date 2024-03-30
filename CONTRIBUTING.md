@@ -288,10 +288,12 @@ classDiagram
         losers()*
     }
 
-    class IDerivativesFutures
-    <<interface>> IDerivativesFutures
-    IDerivativesFutures : historical()*
-    IDerivativesFutures : quote()*
+    class IDerivativesFutures {
+        <<interface>>
+        historical()*
+        quote()*
+        search()*
+    }
 
     class IEtf {
         <<interface>>
@@ -369,11 +371,17 @@ classDiagram
         +losers()
     }
 
-    class DerivativesFuturesTcbs
-    DerivativesFuturesTcbs : +historical()
+    class DerivativesFuturesTcbs {
+        +historical()
+    }
 
-    class DerivativesFuturesVdsc
-    DerivativesFuturesVdsc : +quote()
+    class DerivativesFuturesVdsc {
+        +quote()
+    }
+
+    class DerivativesFuturesSsi {
+        +search()
+    }
 
     class EtfTcbs {
         +historical()
@@ -423,6 +431,7 @@ classDiagram
     IEquityDiscovery <|.. EquityDiscoverySsi
     IDerivativesFutures <|.. DerivativesFuturesTcbs
     IDerivativesFutures <|.. DerivativesFuturesVdsc
+    IDerivativesFutures <|.. DerivativesFuturesSsi
     IEtf <|.. EtfTcbs
     IEtf <|.. EtfDnse
     IEtf <|.. EtfSsi
@@ -549,6 +558,7 @@ classDiagram
     class DerivativesFutures {
         +historical()$
         +quote()$
+        +search()$
     }
 
     class Etf {
@@ -561,11 +571,13 @@ classDiagram
         +constituents()$
     }
 
-    class IndexPrice
-    IndexPrice: +historical()$
+    class IndexPrice {
+        +historical()$
+    }
 
-    class News
-    News: +company()$
+    class News {
+        +company()$
+    }
 
     Funds .. FundsFactory
     Equity .. EquityFactory
@@ -646,9 +658,10 @@ Based on this codebase's structure, when I want to add a new asset type (e.g. Et
 - Initialize the new asset class in the `VietFin` class. E.g. `self.etf = Etf()` in `/__init__.py`
 
 Similarly, when I want to add a new command to an existing asset type, I need to:
-- Create a new method in the abtract interface of the asset type. E.g. `new_method()` in `class IEtf` in `/abstract/interface.py`
+- Create a new method in the abtract interface of the asset type. E.g. `new_method()` in `IEtf` class in `/abstract/interface.py`
 - Implement this new method in the concrete implementation of the asset type. E.g. `new_method()` in `class EtfProvider` in the appropriate `/providers/provider_name/provider.py`
 - Create a new function and new data model to be called by the new command. E.g. `get_data_new_method()` in `/providers/provider_name/utils/new_method.py` and `new_data_model` in `/providers/provider_name/utils/new_data_model.py`
+- Add this new method into all existing provider concrete class, which share the abstract interface. E.g. I also add `new_method()` into the `provider.py` of each existing data provider which implements `IEtf`
 
 When I want to add a new data provider for existing asset type, I need to:
 - Create a new concrete implementation of the new data provider. E.g. `class EtfProvider` in the appropriate `/providers/provider_name/provider.py`

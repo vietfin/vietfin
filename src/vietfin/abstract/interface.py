@@ -162,6 +162,11 @@ class IDerivativesFutures(ABC):
         """Derivatives Futures Quote. Load quote data for a specific futures contract."""
         pass
 
+    @abstractmethod
+    def search(self, symbol: str) -> VfObject:
+        """Derivatives Futures Search. Search for a specific futures contract."""
+        pass
+
 
 class IIndex(ABC):
     """Interface for Index component."""

@@ -18,7 +18,7 @@ class DerivativesFutures:
     """VietFin Derivatives.Futures-related group of commands."""
 
     # list of implemented providers
-    PROVIDERS = Literal["tcbs", "vdsc"]
+    PROVIDERS = Literal["tcbs", "vdsc", "ssi"]
 
     @staticmethod
     def _get_provider(provider: PROVIDERS) -> IDerivativesFutures:
@@ -56,3 +56,11 @@ class DerivativesFutures:
             limit=limit,
             cookie=cookie,
         )
+
+    def search(
+        self, symbol: str = "", provider: PROVIDERS = "ssi"
+    ) -> VfObject:
+        """Derivatives Futures Search. Search for a specific futures contract."""
+
+        provider_instance = self._get_provider(provider)
+        return provider_instance.search(symbol=symbol)

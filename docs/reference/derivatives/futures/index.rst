@@ -20,8 +20,15 @@ Commands
 
         Get the latest quote of a futures contract.
 
+    .. grid-item-card:: search
+        :link: search
+        :link-type: doc
+
+        Search for a futures contract.
+
 .. toctree::
     :hidden:
 
     historical
     quote
+    search

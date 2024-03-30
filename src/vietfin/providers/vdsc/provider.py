@@ -17,3 +17,8 @@ class DerivativesFuturesVdsc(IDerivativesFutures):
         """Derivatives Futures Quote. Load quote data for a specific futures contract."""
 
         return derivatives_futures_quote(symbol=symbol, limit=limit, cookie=cookie)
+
+    def search(self, symbol: str) -> VfObject:
+        """Derivatives Futures Search. Search for a specific futures contract."""
+
+        raise NotImplementedError("derivatives.futures.search() command is not implemented for Vdsc Rong Viet provider.")

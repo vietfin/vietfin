@@ -41,7 +41,7 @@ VietFin is intended for personal use, research and educational purposes.
 
 ## 2. Installation
 
-VietFin is available on [PyPI](https://pypi.org/). To use the package:
+VietFin is available on [PyPI](https://pypi.org/project/vietfin/). To use the package:
 
 1. Install VietFin in your project's virtual environment.
 
@@ -49,7 +49,7 @@ VietFin is available on [PyPI](https://pypi.org/). To use the package:
     $ pip install vietfin
     ```
 
-    Or using [Poetry](https://python-poetry.org/) as my preferred dependency manager:
+    Or using [Poetry](https://python-poetry.org/), my preferred dependency manager:
 
     ``` {.sourceCode .bash}
     $ poetry add vietfin

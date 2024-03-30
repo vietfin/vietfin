@@ -8,8 +8,10 @@ from vietfin.abstract.interface import (
     IEquityFundamental,
     IEtf,
     IEquityPrice,
+    IDerivativesFutures,
 )
 from vietfin.abstract.vfobject import VfObject
+from vietfin.utils.helpers import PERIODS, EXCHANGE_NAMES
 from vietfin.providers.ssi.utils.equity_search import search as equity_search
 from vietfin.providers.ssi.utils.index_search import search as index_search
 from vietfin.providers.ssi.utils.equity_discovery import (
@@ -18,8 +20,8 @@ from vietfin.providers.ssi.utils.equity_discovery import (
 from vietfin.providers.ssi.utils.etf_search import search as etf_search
 from vietfin.providers.ssi.utils.etf_historical import historical
 from vietfin.providers.ssi.utils.index_constituents import constituents
-from vietfin.utils.helpers import PERIODS, EXCHANGE_NAMES
 from vietfin.providers.ssi.utils.equity_fundamental_income import get_financial_report
+from vietfin.providers.ssi.utils.derivatives_futures_search import search as futures_search
 
 
 class EquitySsi(IEquity):
@@ -146,3 +148,22 @@ class EtfSsi(IEtf):
             end_date=end_date,
             interval=interval,
         )
+
+
+class DerivativesFuturesSsi(IDerivativesFutures):
+    """The concrete implementation of Derivatives.Futures component with VietStock as provider."""
+
+    def historical(self, symbol: str, start_date: str, end_date: str) -> VfObject:
+        """Derivatives Futures Historical. Load historical price data for a specific futures contract."""
+
+        raise NotImplementedError("derivatives.futures.historical() command is not implemented for SSI provider.")
+    
+    def quote(self, symbol: str, limit: int, cookie: str) -> VfObject:
+        """Derivatives Futures Quote. Load quote data for a specific futures contract."""
+
+        raise NotImplementedError("derivatives.futures.search() command is not implemented for SSI provider.")
+
+    def search(self, symbol: str) -> VfObject:
+        """Derivatives Futures Search. Search for a specific futures contract."""
+
+        return futures_search(symbol=symbol)

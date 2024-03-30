@@ -80,13 +80,13 @@ class EquityOwnershipTcbs(IEquityOwnership):
         """Equity Major Holders. Load major holders data of a specific ticker."""
         return major_holders(symbol=symbol)
 
-    def foreign_trading(self, symbol: str) -> VfObject:
+    def foreign_trading(self, symbol: str, start_date: str, end_date: str) -> VfObject:
         """Equity Ownership Foreign Trading. Load the trading data of foreign entities for a specific ticker."""
         raise NotImplementedError(
             "equity.ownership.foreign_trading() command is not implemented for Tcbs provider."
         )
     
-    def prop_trading(self, symbol: str) -> VfObject:
+    def prop_trading(self, symbol: str, start_date: str, end_date: str) -> VfObject:
         """Equity Ownership Proprietary trading. Load the trading data of proprietary trading firms for a specific ticker."""
         raise NotImplementedError(
             "equity.ownership.prop_trading() command is not implemented for Tcbs provider."
@@ -157,9 +157,15 @@ class DerivativesFuturesTcbs(IDerivativesFutures):
         )
 
     def quote(self, symbol: str, limit: int, cookie: str) -> VfObject:
-        """Equity Quote. Load quote data of a specific ticker."""
+        """Derivatives Futures Quote. Load quote data of a specific contract symbol."""
         raise NotImplementedError(
-            "equity.price.quote() command is not implemented for Tcbs provider."
+            "derivatives.futures.quote() command is not implemented for Tcbs provider."
+        )
+    
+    def search(self, symbol: str) -> VfObject:
+        """Derivatives Futures Search. Search for a specific futures contract."""
+        raise NotImplementedError(
+            "derivatives.futures.search() command is not implemented for Tcbs provider."
         )
 
 
