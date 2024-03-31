@@ -12,7 +12,7 @@ Menus
         :link: futures/index
         :link-type: doc
 
-        historical, quote.
+        historical, quote, search.
 
 .. toctree::
     :hidden:
