@@ -5,14 +5,14 @@ Get the latest quote of a futures contract.
 
 Example:
 
-Use ``equity.futures.quote()`` with default parameters: ``provider`` (VDSC), ``limit`` (100).
+Use ``equity.futures.quote()`` with default parameters: ``provider`` (SSI), ``limit`` (100).
 
 .. code-block:: python
 
     from vietfin import vf
     
-    # Get the latest quote data of futures contract VN30F2402
-    vf.equity.futures.historical(symbol="VN30F2402")
+    # Get the latest quote data of futures contract VN30F2404
+    vf.equity.futures.historical(symbol="VN30F2404")
 
 Parameters
 ----------
@@ -21,15 +21,32 @@ Parameters
  param_name   type     description                                     default_value   is_required  
 ============ ======== =============================================== =============== ============= 
  symbol       str      Symbol to get data for.                                         TRUE         
- cookie       str      HTTP cookies associated with the server.                        TRUE        
+ cookie       str      HTTP cookies associated with the server.        ""              FALSE        
  limit        int      The number of records to return.                100             FALSE        
- provider     Literal  The provider to use for the query               tcbs            FALSE        
+ provider     Literal  The provider to use for the query               ssi             FALSE        
 ============ ======== =============================================== =============== ============= 
 
 Data Model
 ----------
 
 .. tab-set::
+
+    .. tab-item:: SSI
+
+        ====================== ======= ============================================================================================= 
+         field_name             type    description                                                                                  
+        ====================== ======= ============================================================================================= 
+         date_session           date    Date of the session of the quote.                                                            
+         time                   time    Time of the quote execution.                                                                 
+         symbol                 str     Unique identifier representing the futures contract.                                         
+         volume                 int     Volume of contracts in the quote.                                                            
+         price                  float   Price of the quote.                                                                          
+         status                 str     Buy / Sell / Unfilled. Convey the idea that the order has been fulfilled (executed) or not.  
+         price_change           float   Change in price from the session's reference price, in absolute value.                       
+         price_change_percent   float   Change in price from the current reference price, in percent.                                
+         ref_price              float   Reference or opening price for the trading session.                                          
+         id                     str     Unique identifier representing the quote.                                                    
+        ====================== ======= ============================================================================================= 
 
     .. tab-item:: VDSC
 
@@ -67,4 +84,5 @@ Data Model
 Data Sources
 ------------
 
+- SSI: `iboard.ssi.com.vn <https://iboard.ssi.com.vn/>`_
 - VDSC Rong Viet: `livedragon.vdsc.com.vn <https://livedragon.vdsc.com.vn/fos/fos.rv>`_

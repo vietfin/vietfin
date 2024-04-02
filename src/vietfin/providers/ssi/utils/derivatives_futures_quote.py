@@ -18,7 +18,7 @@ from vietfin.utils.errors import EmptyDataError
 
 
 def quote(symbol: str, limit: int) -> VfObject:
-    """Retrieve Derivatives Futures Historical price of a specific contract symbol.
+    """Retrieve Derivatives Futures Quote data of a specific contract symbol.
 
     Data from SSI https://iboard.ssi.com.vn/
 
@@ -33,8 +33,8 @@ def quote(symbol: str, limit: int) -> VfObject:
     Returns
     -------
     VfObject
-        results : list[SsiEquityHistoricalPriceData]
-            derivatives futures historical price data of the given contract symbol on current date
+        results : list[SsiDerivativesFuturesQuoteData]
+            derivatives futures quote data of the given contract symbol on current date
         provider : str
             provider name 'ssi'
         extra : dict
@@ -89,7 +89,7 @@ def quote(symbol: str, limit: int) -> VfObject:
 
     if not rows:
         raise EmptyDataError(
-            f"No data found for the given futures contract {symbol} on {current_date_string}"
+            f"No data found for the given futures contract {symbol} on {current_date_string}."
         )
 
     # Return only the number of records specified by `limit`
