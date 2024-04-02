@@ -104,6 +104,9 @@ vf.etf.search()
 
 # Get the list of constituents of an index
 vf.index.constituents(symbol='vn30')
+
+# Get the list of available futures contract
+vf.derivatives.futures.search()
 ```
 
 ## 4. Contributing

@@ -24,7 +24,7 @@ Current list of commands and its equivalent functions in [OpenBB Platform](https
         - performance() [ref](https://docs.openbb.co/platform/reference/equity/price/performance)
             - params: symbol, provider
             - example: vf.equity.price.performance(symbol='SSI')
-    - Discovery: NOTE: 20240212 implemented but api returns no data, check later
+    - Discovery:
         - [x] active() [ref](https://docs.openbb.co/platform/reference/equity/discovery/active)
             - get the most active stocks by trading value.
             - example: vf.equity.discovery.active()
@@ -90,7 +90,10 @@ Current list of commands and its equivalent functions in [OpenBB Platform](https
             - example: vf.derivatives.futures.historical(symbol='VN30F1M')
         - [x] quote() [ref](https://docs.openbb.co/platform/reference/equity/price/quote)
             - get historical quote of a futures contract.
-            - example: vf.equity.derivatives.futures.quote(symbol='VN30F2402')
+            - example: vf.derivatives.futures.quote(symbol='VN30F2402')
+        - [x] search()
+            - search for a futures contract. An empty query will return all available futures contracts.
+            - example: vf.derivatives.futures.search()
     - Options
         - chains() [ref](https://docs.openbb.co/platform/reference/derivatives/options/chains)
         - NOTE: 20240214 Vietnam has not supported options contract yet
