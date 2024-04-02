@@ -1,4 +1,4 @@
-"""VDSC Rong Viet Derivatives Futures Historical Price command."""
+"""VDSC Rong Viet Derivatives Futures Quote command."""
 
 from datetime import datetime
 
@@ -17,14 +17,14 @@ from vietfin.utils.helpers import (
 from vietfin.utils.errors import EmptyDataError
 
 
-class HistoricalParams(BaseOtherParams):
-    """Class to validate input of historical() function."""
+class QuoteParams(BaseOtherParams):
+    """Class to validate input of quote() function."""
 
     cookie: str
 
 
 def quote(symbol: str, limit: int, cookie: str) -> VfObject:
-    """Retrieve Derivatives Futures Historical price of a specific contract symbol.
+    """Retrieve Derivatives Futures intraday quote data of a specific contract symbol.
 
     Data from VDSC Rong Viet https://livedragon.vdsc.com.vn/
     As of 2024-02-08, this API is not stable, long runtime and requires cookies.
@@ -62,7 +62,7 @@ def quote(symbol: str, limit: int, cookie: str) -> VfObject:
     """
 
     # Validate input param
-    params = HistoricalParams(symbol=symbol, limit=limit, cookie=cookie)
+    params = QuoteParams(symbol=symbol, limit=limit, cookie=cookie)
     symbol = params.symbol
     limit = params.limit
     cookie = params.cookie

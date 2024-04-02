@@ -20,8 +20,15 @@ from vietfin.providers.ssi.utils.equity_discovery import (
 from vietfin.providers.ssi.utils.etf_search import search as etf_search
 from vietfin.providers.ssi.utils.etf_historical import historical
 from vietfin.providers.ssi.utils.index_constituents import constituents
-from vietfin.providers.ssi.utils.equity_fundamental_income import get_financial_report
-from vietfin.providers.ssi.utils.derivatives_futures_search import search as futures_search
+from vietfin.providers.ssi.utils.equity_fundamental_income import (
+    get_financial_report,
+)
+from vietfin.providers.ssi.utils.derivatives_futures_search import (
+    search as futures_search,
+)
+from vietfin.providers.ssi.utils.derivatives_futures_quote import (
+    quote as futures_quote,
+)
 
 
 class EquitySsi(IEquity):
@@ -77,7 +84,7 @@ class EquityDiscoverySsi(IEquityDiscovery):
     def losers(self, exchange: EXCHANGE_NAMES) -> VfObject:
         """Equity Discovery Losers. Load the list of top loser stocks."""
         return get_top_movers(name="losers", exchange=exchange)
-    
+
 
 class EquityFundamentalSsi(IEquityFundamental):
     """The concrete implementation of Equity.Fundamental component with Ssi as provider."""
@@ -99,19 +106,21 @@ class EquityFundamentalSsi(IEquityFundamental):
         raise NotImplementedError(
             "equity.fundamental.dividends() command is not implemented for SSI provider."
         )
-    
+
     def income(self, symbol: str, period: PERIODS) -> VfObject:
         """Equity Fundamental Income. Load Historical income statement data for a specific ticker."""
         return get_financial_report(symbol=symbol, period=period, name="income")
-    
+
     def balance(self, symbol: str, period: PERIODS) -> VfObject:
         """Equity Fundamental Balance. Load Historical balance sheet statement data for a specific ticker."""
-        return get_financial_report(symbol=symbol, period=period, name="balance")
-    
+        return get_financial_report(
+            symbol=symbol, period=period, name="balance"
+        )
+
     def cash(self, symbol: str, period: PERIODS) -> VfObject:
         """Equity Fundamental Cash. Load Historical cash flow statement data for a specific ticker."""
         return get_financial_report(symbol=symbol, period=period, name="cash")
-    
+
     def multiples(self, symbol: str, period: PERIODS) -> VfObject:
         """Equity Fundamental Multiples. Load Historical valuation multiples data for a specific ticker."""
         raise NotImplementedError(
@@ -153,15 +162,19 @@ class EtfSsi(IEtf):
 class DerivativesFuturesSsi(IDerivativesFutures):
     """The concrete implementation of Derivatives.Futures component with VietStock as provider."""
 
-    def historical(self, symbol: str, start_date: str, end_date: str) -> VfObject:
+    def historical(
+        self, symbol: str, start_date: str, end_date: str
+    ) -> VfObject:
         """Derivatives Futures Historical. Load historical price data for a specific futures contract."""
 
-        raise NotImplementedError("derivatives.futures.historical() command is not implemented for SSI provider.")
-    
-    def quote(self, symbol: str, limit: int, cookie: str) -> VfObject:
+        raise NotImplementedError(
+            "derivatives.futures.historical() command is not implemented for SSI provider."
+        )
+
+    def quote(self, symbol: str, limit: int, cookie: str = "") -> VfObject:
         """Derivatives Futures Quote. Load quote data for a specific futures contract."""
 
-        raise NotImplementedError("derivatives.futures.search() command is not implemented for SSI provider.")
+        return futures_quote(symbol=symbol, limit=limit)
 
     def search(self, symbol: str) -> VfObject:
         """Derivatives Futures Search. Search for a specific futures contract."""

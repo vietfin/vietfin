@@ -44,9 +44,9 @@ class DerivativesFutures:
     def quote(
         self,
         symbol: str,
-        cookie: str,
+        cookie: str = "",
         limit: int = 100,
-        provider: PROVIDERS = "vdsc",
+        provider: PROVIDERS = "ssi",
     ) -> VfObject:
         """Futures Quote. Load Futures quote for a specific futures contract."""
 

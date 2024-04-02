@@ -29,7 +29,19 @@ def test_derivatives_futures_historical(symbol, start_date, end_date, provider):
     ],
 )
 def test_derivatives_futures_search(symbol):
-    """Test derivatives.futures.historical() command."""
+    """Test derivatives.futures.search() command."""
 
     result = vf.derivatives.futures.search(symbol)
+    ars(result, symbol)
+
+@pytest.mark.parametrize(
+    "symbol",
+    [
+        "VN30F2409",
+    ],
+)
+def test_derivatives_futures_quote(symbol):
+    """Test derivatives.futures.quote() command."""
+
+    result = vf.derivatives.futures.quote(symbol)
     ars(result, symbol)
