@@ -1,4 +1,7 @@
-# requirements to build the docs on Readthedocs 
+# requirements to build the docs on Readthedocs
+
+selectolax==0.3.21
+nbsphinx==0.9.3
 
 alabaster==0.7.16 ; python_version >= "3.10" and python_version < "4.0"
 annotated-types==0.6.0 ; python_version >= "3.10" and python_version < "4.0"

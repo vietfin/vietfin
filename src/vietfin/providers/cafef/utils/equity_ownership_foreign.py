@@ -1,6 +1,7 @@
 # """Cafef Equity Ownership Foreign Trading command."""
 
 import requests
+import httpx
 
 from vietfin.providers.cafef.utils.helpers import cafef_headers
 from vietfin.providers.cafef.models.equity_ownership_foreign import (

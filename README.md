@@ -67,6 +67,8 @@ Requirements:
 - [requests](https://requests.readthedocs.io/en/latest/) \>= 2.31
 - [pandas](https://pandas.pydata.org/) \>= 2.1.4
 - [Pydantic](https://github.com/pydantic/pydantic) \>= 2.5
+- [httpx](https://www.python-httpx.org/) \>= 0.27
+- [selectolax](https://github.com/rushter/selectolax) \>= 0.3
 
 ## 3. Usage
 

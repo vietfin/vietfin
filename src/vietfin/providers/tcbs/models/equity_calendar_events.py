@@ -1,6 +1,6 @@
 """TCBS Equity Calendar Events Model."""
 
-from bs4 import BeautifulSoup as bs
+from selectolax.parser import HTMLParser
 from pydantic import field_validator
 
 from vietfin.abstract.data import Data
@@ -40,6 +40,8 @@ class TcbsEquityCalendarEventsData(Data):
     @classmethod
     def parse_html(cls, v: str) -> str:
         """Parse HTML to text."""
-        soup = bs(v, "html.parser")
-        v = soup.get_text(separator="\n", strip=True)
+        tree = HTMLParser(v)
+        if tree.body is None:
+            return "No event description available."
+        v = tree.body.text(separator="\n", strip=True)
         return v
