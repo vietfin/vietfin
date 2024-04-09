@@ -9,7 +9,12 @@
 - Add new command `derivatives.futures.search()`
 - Update docs related to these two new features
 - Add unit tests for this new features
-- Replace `datetime.utcfromtimestamp` with `datetime.fromtimestamp` since the previous will be [deprecated since v3.12](https://docs.python.org/3/library/datetime.html#datetime.datetime.utcfromtimestamp)
+- Replace `datetime.utcfromtimestamp` with `datetime.fromtimestamp` since the previous will be [deprecated since python v3.12](https://docs.python.org/3/library/datetime.html#datetime.datetime.utcfromtimestamp)
+
+ongoing
+- Replace package [requests](https://github.com/psf/requests) with [httpx](https://www.python-httpx.org/) for better performance.
+- Replace package [bs4](https://pypi.org/project/beautifulsoup4/) with [selectolax](https://github.com/rushter/selectolax) for better performance.
+- Add conditional import for playwright when user wants to use `derivatives.futures.quote()` with provider `vdsc`.
 
 ## v0.1.0 (2024-03-08)
 
