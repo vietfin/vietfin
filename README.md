@@ -64,7 +64,6 @@ VietFin is available on [PyPI](https://pypi.org/project/vietfin/). To use the pa
 Requirements:
 
 - [Python](https://www.python.org) \>= 3.10
-- [requests](https://requests.readthedocs.io/en/latest/) \>= 2.31
 - [pandas](https://pandas.pydata.org/) \>= 2.1.4
 - [Pydantic](https://github.com/pydantic/pydantic) \>= 2.5
 - [httpx](https://www.python-httpx.org/) \>= 0.27
