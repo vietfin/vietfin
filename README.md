@@ -127,8 +127,8 @@ Feel free to reach out to us in [our GitHub Discussions](https://github.com/viet
 
 VietFin is built on top of the inspiration and work of the following projects:
 
-- [Openbb](https://github.com/OpenBB-finance/OpenBBTerminal), its [Data Standardization Infrastructure](https://docs.openbb.co/platform/development/developer-guidelines/architectural_considerations), the hierarchical structure of user-facing commands, and the documentation style of [OpenBB Platform's API reference](https://docs.openbb.co/platform/reference).
-- [vnstock](https://github.com/thinh-vu/vnstock) and its findinds on publicly available APIs from brokerage firms in Vietnam.
+- [OpenBB](https://github.com/OpenBB-finance/OpenBBTerminal), its [Data Standardization Infrastructure](https://docs.openbb.co/platform/development/developer-guidelines/architectural_considerations), the hierarchical structure of user-facing commands, and the documentation style of [OpenBB Platform's API reference](https://docs.openbb.co/platform/reference).
+- [vnstock](https://github.com/thinh-vu/vnstock) and its findinds on publicly available APIs from many brokerage firms in Vietnam.
 
 ## 6. Disclaimer
 

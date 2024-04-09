@@ -41,9 +41,9 @@ Setup your local development environment. Then start coding.
 
 We use the combination of [conda](https://docs.conda.io/en/latest/) to manage virtual environments and [poetry](https://python-poetry.org/) to manage dependencies.
 
-- Clone the `dev` branch of the VietFin repository. E.g. `git clone -b dev https://github.com/h7b/vietfin.git`
+- Clone the `dev` branch of the VietFin repository. E.g. `git clone -b dev https://github.com/vietfin/vietfin.git`
 - Install [conda](https://docs.conda.io/en/latest/miniconda.html)
-- Create a new conda environment named `dev-vietfin` with `Python 3.10`. E.g. `conda create -n dev-vietfin python=3.10`
+- Use `conda` to create a new virtual environment named `dev-vietfin` with `Python 3.10`. E.g. `conda create -n dev-vietfin python=3.10`
 - Activate the environment. E.g. `conda activate dev-vietfin`
 - Install poetry. E.g. `conda install poetry`
 - Install dependencies with optional dependency group `dev` for developement purposes. E.g. `poetry install --with dev`
@@ -54,7 +54,7 @@ When you have resolved your issue, open a pull request (PR) in the VietFin repos
 
 - Make sure your branch is up to date with the `dev` branch of VietFin repository
 - Start your PR title with a [conventional commit](https://www.conventionalcommits.org/en/) tag. We use the [Angular convention](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type) and follow this [guideline for git commits](https://deepsource.com/blog/git-best-practices)
-- In the PR description, link to the issue you were working on
+- In the PR description, link to the issue you were working on.
 
 ### Git Process
 
@@ -72,7 +72,7 @@ The documentation is written in [reStructuredText](https://docutils.sourceforge.
 
 If you want to modify/add documentation and see how changes will be rendered, you can setup a local development virtual environment as follows.
 
-- Clone the `dev` branch of the VietFin repository. E.g. `git clone -b dev https://github.com/h7b/vietfin.git`
+- Clone the `dev` branch of the VietFin repository. E.g. `git clone -b dev https://github.com/vietfin/vietfin.git`
 - Install [conda](https://docs.conda.io/en/latest/miniconda.html)
 - Create a new conda environment named `docs-vietfin` with `Python 3.10`. E.g. `conda create -n docs-vietfin python=3.10`
 - Activate the environment. E.g. `conda activate docs-vietfin`
@@ -97,7 +97,7 @@ VietFin adheres to the [semantic versioning](https://semver.org/) specification.
 
 At high level, the codebase is structured as 3 layers:
 
-The 1st layer, "Facade", is a recreation of the [OpenBB's hierarchical structure](https://docs.openbb.co/platform/reference) for user-facing commands. It includes a "wrapper" class named `VietFin`, and its components (i.e. `Funds`, `Equity`, `EquityPrice`, etc.). The word "Facade" coming from [Facade Design Pattern](https://faun.pub/design-patterns-in-python-facade-pattern-4f495746301d).
+The 1st layer, "Facade", is a recreation of the [OpenBB's hierarchical structure](https://docs.openbb.co/platform/reference) for user-facing commands. It includes a "wrapper" class named `VietFin`, and its components (i.e. `Funds`, `Equity`, `EquityPrice`, etc.). The word "Façade" coming from [Facade Design Pattern](https://faun.pub/design-patterns-in-python-facade-pattern-4f495746301d).
 
 ```mermaid
 ---
@@ -226,7 +226,7 @@ classDiagram
     Data <-- FmarketFundHistoricalNavData
 ```
 
-In combination of 3 layers, take an example with the component `Funds` of `VietFin` package.
+For example, with the component `Funds` of `VietFin` package, these 3 layers is interpreted as follows. 
 - The logic of creating the `FundsFmarket` object is encapsulated in the `FundsFactory` abstract interface.
 - The real/concrete implementation of the data fetching from provider Fmarket is in the `FundsFmarket` class.
 - The data standardized model is the `FmarketFundInfoData` class and its peers, which is located in `/vietfin/providers/fmarket/models/`.
@@ -667,4 +667,4 @@ When I want to add a new data provider for existing asset type, I need to:
 - Create a new concrete implementation of the new data provider. E.g. `class EtfProvider` in the appropriate `/providers/provider_name/provider.py`
 - Add this new concrete implementation to the Factory class. E.g. `providers_implementations` in `class EtfFactory` in `/abstract/factory.py`
 
-NOTE: This approach is not DRY. I'm open to suggestions to improve the codebase.
+NOTE: This approach is not [DRY](https://docs.getdbt.com/terms/dry). I'm open to suggestions to improve the codebase.
