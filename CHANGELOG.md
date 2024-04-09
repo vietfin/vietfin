@@ -14,7 +14,7 @@
 ongoing
 - Replace package [requests](https://github.com/psf/requests) with [httpx](https://www.python-httpx.org/) for better performance.
 - Replace package [bs4](https://pypi.org/project/beautifulsoup4/) with [selectolax](https://github.com/rushter/selectolax) for better performance.
-- Add conditional import for playwright when user wants to use `derivatives.futures.quote()` with provider `vdsc`.
+- Add conditional import for playwright to retrieve cookies automatically when user wants to use `derivatives.futures.quote()` with provider `vdsc`.
 
 ## v0.1.0 (2024-03-08)
 
