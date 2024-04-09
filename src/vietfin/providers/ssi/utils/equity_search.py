@@ -1,6 +1,6 @@
 """SSI Equity Search function."""
 
-import requests
+import httpx as requests
 
 from vietfin.providers.ssi.utils.helpers import ssi_headers
 from vietfin.abstract.vfobject import VfObject

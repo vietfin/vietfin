@@ -1,6 +1,6 @@
 """SSI Derivatives Futures Search command."""
 
-import requests
+import httpx as requests
 
 from vietfin.providers.ssi.utils.helpers import ssi_headers
 from vietfin.providers.ssi.models.derivatives_futures_search import (

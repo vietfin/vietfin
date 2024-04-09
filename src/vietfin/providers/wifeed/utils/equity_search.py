@@ -1,6 +1,6 @@
 """WiFeed Equity Search function."""
 
-import requests
+import httpx as requests
 
 from vietfin.abstract.vfobject import VfObject
 from vietfin.providers.wifeed.models.equity_search import WifeedEquitySearchData

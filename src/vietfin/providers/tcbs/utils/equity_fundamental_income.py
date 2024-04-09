@@ -1,6 +1,6 @@
 """TCBS Equity Fundamental Income command."""
 
-import requests
+import httpx as requests
 import pandas as pd
 
 from vietfin.abstract.vfobject import VfObject

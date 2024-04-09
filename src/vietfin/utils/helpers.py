@@ -9,7 +9,7 @@ from datetime import datetime, timezone, timedelta
 import pandas as pd
 from pydantic.functional_validators import AfterValidator
 from pydantic import BaseModel, field_validator, model_validator
-import requests
+import httpx as requests
 
 from vietfin.abstract.data import Data
 
@@ -141,12 +141,12 @@ def check_response_error(response: requests.Response) -> None:
 
     Raises
     ------
-    requests.exceptions.HTTPError
+    requests.HTTPError
         If the response status code indicates an error.
     """
 
     if response.status_code != 200:
-        raise requests.exceptions.HTTPError(
+        raise requests.HTTPError(
             f"Error in API response: {response.status_code} - {response.text}"
         )
 

@@ -3,7 +3,7 @@
 from datetime import datetime, timedelta
 from typing import Literal
 
-import requests
+import httpx as requests
 from pydantic import field_validator, model_validator
 
 from vietfin.providers.dnse.utils.helpers import dnse_headers

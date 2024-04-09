@@ -1,8 +1,6 @@
 """Fmarket utils."""
 
-import json
-
-import requests
+import httpx as requests
 
 from vietfin.utils.errors import VietFinError
 
@@ -46,13 +44,12 @@ def get_fund_id(symbol: str) -> int:
         "types": ["NEW_FUND", "TRADING_FUND"],
         "pageSize": 100,
     }
-    payload = json.dumps(payload)  # type: ignore
 
     url = "https://api.fmarket.vn/res/products/filter"
-    response = requests.post(url, headers=fmarket_headers, data=payload)
+    response = requests.post(url, headers=fmarket_headers, json=payload)
 
     if response.status_code != 200:
-        raise requests.exceptions.HTTPError(
+        raise requests.HTTPError(
             f"Error in API response: {response.status_code} - {response.text}"
         )
 

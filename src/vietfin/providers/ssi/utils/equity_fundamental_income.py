@@ -4,7 +4,7 @@ from datetime import datetime
 from io import BytesIO
 import re
 
-import requests
+import httpx as requests
 import pandas as pd
 
 from vietfin.abstract.vfobject import VfObject
@@ -90,7 +90,7 @@ def get_financial_report(
     response = requests.get(url, headers=ssi_headers)
     check_response_error(response)
 
-    # Parse API response then remove the first 7 rows and last 3 rows
+    # Parse API response then remove the first 7 rows and the last 3 rows
     df = pd.read_excel(BytesIO(response.content), skiprows=7)
     df = df.iloc[:-3]
 
@@ -107,15 +107,17 @@ def get_financial_report(
     # Add 'period' column
     df["period"] = period
 
-    # Unpivot the DataFrame
-    # This regex match any string that starts with 'Q' followed by 1 or 2 digits and a space,
-    # then ends with 4 digits (for quarters) or just 4 digits (for years)
+
+    # This regex match any string that starts with 'Q' followed by 1 or 2 digits and a space then ends with 4 digits (for quarters, e.g. Q01 2023)
+    # or just 4 digits (for years, e.g. 2023)
     year_quarter_regex = re.compile(r"^(Q\d{1,2}\s)?\d{4}$")
+
     # Identify column labels that represent years or quarters
     period_columns = [
         col for col in df.columns if year_quarter_regex.match(col)
     ]
 
+    # Unpivot the DataFrame
     df = pd.melt(
         df,
         id_vars=["ITEMS", "period"],

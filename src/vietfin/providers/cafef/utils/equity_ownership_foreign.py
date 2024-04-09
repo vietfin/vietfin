@@ -1,7 +1,6 @@
 # """Cafef Equity Ownership Foreign Trading command."""
 
-import requests
-import httpx
+import httpx as requests
 
 from vietfin.providers.cafef.utils.helpers import cafef_headers
 from vietfin.providers.cafef.models.equity_ownership_foreign import (
@@ -76,8 +75,8 @@ def foreign(
 
     while True:
         url = f"https://s.cafef.vn/Ajax/PageNew/DataHistory/GDKhoiNgoai.ashx?Symbol={symbol}&StartDate={start_date}&EndDate={end_date}&PageIndex={page_index}&PageSize={page_size}"
-        response = requests.get(url, headers=cafef_headers)        
-        check_response_error(response)        
+        response = requests.get(url, headers=cafef_headers)
+        check_response_error(response)
         data_chunk = response.json()
         rows = data_chunk.get("Data", {}).get("Data", [])
 
@@ -88,11 +87,12 @@ def foreign(
         data.append(data_chunk)
 
         # Unpack dictionary to data model and return the results
-        trading_data.extend([CafefEquityOwnershipForeignTradingData(**r) for r in rows])
+        trading_data.extend(
+            [CafefEquityOwnershipForeignTradingData(**r) for r in rows]
+        )
 
         # increment page_index to continue fetching until no more data
         page_index += 1
-
 
     if not trading_data:
         raise EmptyDataError

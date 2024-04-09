@@ -1,6 +1,6 @@
 # """Cafef Equity Ownership Proprietary Trading command."""
 
-import requests
+import httpx as requests
 
 from vietfin.providers.cafef.utils.helpers import cafef_headers
 from vietfin.providers.cafef.models.equity_ownership_prop import (

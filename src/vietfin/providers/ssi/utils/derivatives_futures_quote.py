@@ -2,7 +2,7 @@
 
 from datetime import datetime
 
-import requests
+import httpx as requests
 
 from vietfin.providers.ssi.utils.helpers import ssi_headers
 from vietfin.providers.ssi.models.derivatives_futures_quote import (

@@ -1,6 +1,6 @@
 """TCBS Equity Calendar dividend() command."""
 
-import requests
+import httpx as requests
 
 from vietfin.providers.tcbs.utils.helpers import tcbs_headers
 from vietfin.abstract.vfobject import VfObject

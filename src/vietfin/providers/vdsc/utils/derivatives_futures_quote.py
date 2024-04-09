@@ -2,7 +2,7 @@
 
 from datetime import datetime
 
-import requests
+import httpx as requests
 
 from vietfin.providers.vdsc.utils.helpers import rv_headers
 from vietfin.providers.vdsc.models.derivatives_futures_quote import (

@@ -1,6 +1,6 @@
 """Fmarket Funds Top Holdings function."""
 
-import requests
+import httpx as requests
 
 from vietfin.abstract.vfobject import VfObject
 from vietfin.providers.fmarket.utils.helpers import fmarket_headers, get_fund_id
