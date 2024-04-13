@@ -35,8 +35,6 @@ ruff = "^0.1.11"  # needed to format code
 mypy = "^1.8.0"  # needed to type hint code
 ipykernel = "^6.28.0"  # needed to execute functions in jupyter notebooks
 pandas-stubs = "^2.1.4.231227"  # needed for mypy to type hint pandas
-types-requests = "^2.31.0.20240106"  # needed for mypy to type hint requests
-types-beautifulsoup4 = "^4.12.0.20240106"  # needed for mypy to type hint bs4
 
 [tool.poetry.group.docs.dependencies]
 sphinx = "^7.2.6"  # needed to generate documentation website

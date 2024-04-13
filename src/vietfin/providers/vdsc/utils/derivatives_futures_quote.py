@@ -17,13 +17,26 @@ from vietfin.utils.helpers import (
 from vietfin.utils.errors import EmptyDataError
 
 
-class QuoteParams(BaseOtherParams):
-    """Class to validate input of quote() function."""
+def get_cookies_selenium():
+    """Retrieve cookies from VDSC Rong Viet website using Selenium."""
+    try:
+        from selenium import webdriver  # type: ignore # pylint: disable=import-outside-toplevel
+    except ImportError as exc:
+        raise ImportError(
+            "Please install selenium to use this function. e.g. `poetry add selenium`."
+        ) from exc
 
-    cookie: str
+    driver = webdriver.Chrome()
+    driver.get("https://livedragon.vdsc.com.vn/general/intradayBoard.rv")
+    cookies = driver.get_cookies()
+    requests_cookies = {}
+    for c in cookies:
+        requests_cookies[c["name"]] = c["value"]
+
+    return requests_cookies
 
 
-def quote(symbol: str, limit: int, cookie: str) -> VfObject:
+def quote(symbol: str, limit: int) -> VfObject:
     """Retrieve Derivatives Futures intraday quote data of a specific contract symbol.
 
     Data from VDSC Rong Viet https://livedragon.vdsc.com.vn/
@@ -36,8 +49,6 @@ def quote(symbol: str, limit: int, cookie: str) -> VfObject:
     limit : int
         limit of number of records to be retrieved.
         0 will return all records.
-    cookie: str
-        cookie string required for the request headers.
 
     Returns
     -------
@@ -62,24 +73,22 @@ def quote(symbol: str, limit: int, cookie: str) -> VfObject:
     """
 
     # Validate input param
-    params = QuoteParams(symbol=symbol, limit=limit, cookie=cookie)
+    params = BaseOtherParams(symbol=symbol, limit=limit)
     symbol = params.symbol
     limit = params.limit
-    cookie = params.cookie
 
     current_date = datetime.now()
     current_date_string_api = current_date.strftime("%d/%m/%Y")
     current_date_string_iso = current_date.strftime("%Y-%m-%d")
 
-    # Update headers with the user-provided cookies
-    headers = rv_headers.copy()
-    headers["Cookie"] = cookie
-
     # API call
+    requests_cookies = get_cookies_selenium()
+
     payload = {"stockCode": symbol, "boardDate": current_date_string_api}
     url = "https://livedragon.vdsc.com.vn/general/intradaySearch.rv"
-    response = requests.post(url, headers=headers, data=payload)
-
+    response = requests.post(
+        url, headers=rv_headers, data=payload, cookies=requests_cookies
+    )
     check_response_error(response)
 
     data = response.json()
@@ -94,9 +103,6 @@ def quote(symbol: str, limit: int, cookie: str) -> VfObject:
     if limit == 0:
         limit = len(rows)  # return all available data points
     limited_rows = rows[:limit]
-    print(
-        f"Retrieved {limit} intraday quotes for futures contract {symbol} traded on {current_date_string_iso}"
-    )
 
     # Unpack json data into data model
     derivatives_futures_quote: list[VdscDerivativesFuturesQuoteData] = [
@@ -109,7 +115,7 @@ def quote(symbol: str, limit: int, cookie: str) -> VfObject:
     )
 
     print(
-        f"Retrieved {extra.get('records_count',[])} intraday quotes for futures contract {symbol}."
+        f"Retrieved {extra.get('records_count',[])} intraday quotes for futures contract {symbol} traded on {current_date_string_iso}."
     )
 
     return VfObject(

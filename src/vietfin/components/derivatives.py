@@ -18,7 +18,7 @@ class DerivativesFutures:
     """VietFin Derivatives.Futures-related group of commands."""
 
     # list of implemented providers
-    PROVIDERS = Literal["tcbs", "vdsc", "ssi"]
+    PROVIDERS = Literal["tcbs", "ssi"]
 
     @staticmethod
     def _get_provider(provider: PROVIDERS) -> IDerivativesFutures:
@@ -44,7 +44,6 @@ class DerivativesFutures:
     def quote(
         self,
         symbol: str,
-        cookie: str = "",
         limit: int = 100,
         provider: PROVIDERS = "ssi",
     ) -> VfObject:
@@ -54,7 +53,6 @@ class DerivativesFutures:
         return provider_instance.quote(
             symbol=symbol,
             limit=limit,
-            cookie=cookie,
         )
 
     def search(

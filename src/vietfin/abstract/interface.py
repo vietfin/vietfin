@@ -158,7 +158,7 @@ class IDerivativesFutures(ABC):
         pass
 
     @abstractmethod
-    def quote(self, symbol: str, limit: int, cookie: str) -> VfObject:
+    def quote(self, symbol: str, limit: int) -> VfObject:
         """Derivatives Futures Quote. Load quote data for a specific futures contract."""
         pass
 

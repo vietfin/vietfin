@@ -171,7 +171,7 @@ class DerivativesFuturesSsi(IDerivativesFutures):
             "derivatives.futures.historical() command is not implemented for SSI provider."
         )
 
-    def quote(self, symbol: str, limit: int, cookie: str = "") -> VfObject:
+    def quote(self, symbol: str, limit: int) -> VfObject:
         """Derivatives Futures Quote. Load quote data for a specific futures contract."""
 
         return futures_quote(symbol=symbol, limit=limit)

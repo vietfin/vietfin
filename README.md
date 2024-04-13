@@ -68,6 +68,7 @@ Requirements:
 - [Pydantic](https://github.com/pydantic/pydantic) \>= 2.5
 - [httpx](https://www.python-httpx.org/) \>= 0.27
 - [selectolax](https://github.com/rushter/selectolax) \>= 0.3
+- [openpyxl](https://pypi.org/project/openpyxl/) \>= 3.1.2
 
 ## 3. Usage
 
