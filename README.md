@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/docs/_static/logo.jpg" alt="VietFin" width="228" />
+  <img src="https://github.com/vietfin/vietfin/blob/main/docs/_static/logo.jpg" alt="VietFin" width="228" />
 </p>
 
 <h2 align="center">VietFin</h2>
