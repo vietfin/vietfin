@@ -9,6 +9,7 @@ from vietfin.abstract.interface import (
     IEquityFundamental,
     IEquityDiscovery,
     IDerivativesFutures,
+    IDerivativesCoveredWarrant,
     IIndex,
     IIndexPrice,
     IEtf,
@@ -19,6 +20,7 @@ from vietfin.providers.ssi.provider import (
     EquitySsi,
     EquityPriceSsi,
     EquityFundamentalSsi,
+    DerivativesCoveredWarrantSsi,
     IndexSsi,
     EquityDiscoverySsi,
     EtfSsi,
@@ -215,6 +217,27 @@ class DerivativesFuturesFactory:
 
     def get_provider(self, provider: str) -> IDerivativesFutures:
         """Returns a new concrete implementation of IDerivativesFutures instance based on the provider name."""
+
+        if provider in self.providers_implementations:
+            return self.providers_implementations[provider]
+        else:
+            raise NotImplementedError(
+                f"Provider {provider} is not implemented yet."
+            )
+
+
+class DerivativesCoveredWarrantFactory:
+    """Factory class for Derivatives.CoveredWarrant component.
+
+    Factory represents a combination of the IDerivativesCoveredWarrant's concrete implementations based on provider_name.
+    """
+
+    providers_implementations = {
+        "ssi": DerivativesCoveredWarrantSsi(),
+    }
+
+    def get_provider(self, provider: str) -> IDerivativesCoveredWarrant:
+        """Returns a new concrete implementation of IDerivativesCoveredWarrant instance based on the provider name."""
 
         if provider in self.providers_implementations:
             return self.providers_implementations[provider]

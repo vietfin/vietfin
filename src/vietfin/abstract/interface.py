@@ -71,15 +71,18 @@ class IEquityOwnership(ABC):
         pass
 
     @abstractmethod
-    def foreign_trading(self, symbol: str, start_date: Any, end_date: Any) -> VfObject:
+    def foreign_trading(
+        self, symbol: str, start_date: Any, end_date: Any
+    ) -> VfObject:
         """Equity Ownership Foreign Trading. Load the trading data of foreign entities for a specific ticker."""
         pass
 
     @abstractmethod
-    def prop_trading(self, symbol: str, start_date: Any, end_date: Any) -> VfObject:
+    def prop_trading(
+        self, symbol: str, start_date: Any, end_date: Any
+    ) -> VfObject:
         """Equity Ownership Proprietary trading. Load the trading data of proprietary trading firms for a specific ticker."""
         pass
-
 
 
 class IEquityCalendar(ABC):
@@ -113,12 +116,12 @@ class IEquityFundamental(ABC):
     def income(self, symbol: str, period: Any) -> VfObject:
         """Equity Fundamental Income. Load Historical income statement data for a specific ticker."""
         pass
-    
+
     @abstractmethod
     def balance(self, symbol: str, period: Any) -> VfObject:
         """Equity Fundamental Balance. Load Historical balance sheet statement data for a specific ticker."""
         pass
-    
+
     @abstractmethod
     def cash(self, symbol: str, period: Any) -> VfObject:
         """Equity Fundamental Cash. Load Historical cash flow statement data for a specific ticker."""
@@ -128,6 +131,7 @@ class IEquityFundamental(ABC):
     def multiples(self, symbol: str, period: Any) -> VfObject:
         """Equity Fundamental Multiples. Load Historical valuation multiples data for a specific ticker."""
         pass
+
 
 class IEquityDiscovery(ABC):
     """Interface for Equity Discovery component."""
@@ -168,6 +172,15 @@ class IDerivativesFutures(ABC):
         pass
 
 
+class IDerivativesCoveredWarrant(ABC):
+    """Interface for Derivatives Covered Warrant component."""
+
+    @abstractmethod
+    def search(self, symbol: str) -> VfObject:
+        """Derivatives Covered Warrant Search. Search for a specific covered warrant."""
+        pass
+
+
 class IIndex(ABC):
     """Interface for Index component."""
 
@@ -186,7 +199,9 @@ class IIndexPrice(ABC):
     """Interface for Index Price component."""
 
     @abstractmethod
-    def historical(self, symbol: str, start_date: Any, end_date: Any, interval: Any) -> VfObject:
+    def historical(
+        self, symbol: str, start_date: Any, end_date: Any, interval: Any
+    ) -> VfObject:
         """Index Price Historical. Load historical price data for a specific index."""
         pass
 
@@ -205,6 +220,7 @@ class IEtf(ABC):
     def search(self, symbol: str) -> VfObject:
         """Etf Search. Search for an ETF ticker."""
         pass
+
 
 class INews(ABC):
     """Interface for News component."""

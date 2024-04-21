@@ -14,7 +14,14 @@ Menus
 
         historical, quote, search.
 
+    .. grid-item-card:: Covered Warrant
+        :link: cw/index
+        :link-type: doc
+
+        search.
+
 .. toctree::
     :hidden:
 
     futures/index
+    cw/index

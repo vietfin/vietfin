@@ -9,6 +9,7 @@ from vietfin.abstract.interface import (
     IEtf,
     IEquityPrice,
     IDerivativesFutures,
+    IDerivativesCoveredWarrant,
 )
 from vietfin.abstract.vfobject import VfObject
 from vietfin.utils.helpers import PERIODS, EXCHANGE_NAMES
@@ -28,6 +29,9 @@ from vietfin.providers.ssi.utils.derivatives_futures_search import (
 )
 from vietfin.providers.ssi.utils.derivatives_futures_quote import (
     quote as futures_quote,
+)
+from vietfin.providers.ssi.utils.derivatives_coveredwarrant_search import (
+    search as cw_search,
 )
 
 
@@ -160,7 +164,7 @@ class EtfSsi(IEtf):
 
 
 class DerivativesFuturesSsi(IDerivativesFutures):
-    """The concrete implementation of Derivatives.Futures component with VietStock as provider."""
+    """The concrete implementation of Derivatives.Futures component with SSI as provider."""
 
     def historical(
         self, symbol: str, start_date: str, end_date: str
@@ -180,3 +184,12 @@ class DerivativesFuturesSsi(IDerivativesFutures):
         """Derivatives Futures Search. Search for a specific futures contract."""
 
         return futures_search(symbol=symbol)
+
+
+class DerivativesCoveredWarrantSsi(IDerivativesCoveredWarrant):
+    """The concrete implementation of Derivatives.CoveredWarrant component with SSI as provider."""
+
+    def search(self, symbol: str) -> VfObject:
+        """Derivatives Covered Warrant Search. Search for a specific covered warrant."""
+
+        return cw_search(symbol=symbol)

@@ -6,7 +6,6 @@ from vietfin import vf
 from .utils import assert_run_success as ars
 
 
-# Test methods of Derivatives.Futures class
 @pytest.mark.parametrize(
     "symbol, start_date, end_date, provider",
     [
@@ -21,6 +20,7 @@ def test_derivatives_futures_historical(symbol, start_date, end_date, provider):
     )
     ars(result, symbol, provider)
 
+
 @pytest.mark.parametrize(
     "symbol",
     [
@@ -34,6 +34,7 @@ def test_derivatives_futures_search(symbol):
     result = vf.derivatives.futures.search(symbol)
     ars(result, symbol)
 
+
 @pytest.mark.parametrize(
     "symbol",
     [
@@ -44,4 +45,18 @@ def test_derivatives_futures_quote(symbol):
     """Test derivatives.futures.quote() command."""
 
     result = vf.derivatives.futures.quote(symbol)
+    ars(result, symbol)
+
+
+@pytest.mark.parametrize(
+    "symbol",
+    [
+        "",
+        "CACB2304",
+    ],
+)
+def test_derivatives_coveredwarrant_search(symbol):
+    """Test derivatives.cw.search() command."""
+
+    result = vf.derivatives.cw.search(symbol)
     ars(result, symbol)

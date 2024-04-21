@@ -295,6 +295,11 @@ classDiagram
         search()*
     }
 
+    class IDerivativesCoveredWarrant {
+        <<interface>>
+        search()*
+    }
+
     class IEtf {
         <<interface>>
         historical()*
@@ -375,11 +380,12 @@ classDiagram
         +historical()
     }
 
-    class DerivativesFuturesVdsc {
+    class DerivativesFuturesSsi {
+        +search()
         +quote()
     }
 
-    class DerivativesFuturesSsi {
+    class DerivativesCoveredWarrantSsi {
         +search()
     }
 
@@ -430,8 +436,8 @@ classDiagram
     IEquityFundamental <|.. EquityFundamentalTcbs
     IEquityDiscovery <|.. EquityDiscoverySsi
     IDerivativesFutures <|.. DerivativesFuturesTcbs
-    IDerivativesFutures <|.. DerivativesFuturesVdsc
     IDerivativesFutures <|.. DerivativesFuturesSsi
+    IDerivativesCoveredWarrant <|.. DerivativesCoveredWarrantSsi
     IEtf <|.. EtfTcbs
     IEtf <|.. EtfDnse
     IEtf <|.. EtfSsi
@@ -442,62 +448,67 @@ classDiagram
 
     class FundsFactory {
         +get_provider()
-        +Dict funds_providers_implementations
+        +Dict providers_implementations
     }
 
     class EquityFactory {
         +get_provider()
-        +Dict equity_implementations
+        +Dict providers_implementations
     }
 
     class EquityPriceFactory {
         +get_provider()
-        +Dict equity_price_implementations
+        +Dict providers_implementations
     }
 
     class EquityOwnershipFactory {
         +get_provider()
-        +Dict equity_ownership_implementations
+        +Dict providers_implementations
     }
 
     class EquityCalendarFactory {
         +get_provider()
-        +Dict equity_calendar_implementations
+        +Dict providers_implementations
     }
 
     class EquityFundamentalFactory {
         +get_provider()
-        +Dict equity_fundamental_implementations
+        +Dict providers_implementations
     }
 
     class EquityDiscoveryFactory {
         +get_provider()
-        +Dict equity_discovery_implementations
+        +Dict providers_implementations
     }
 
     class DerivativesFuturesFactory {
         +get_provider()
-        +Dict derivatives_futures_implementations
+        +Dict providers_implementations
+    }
+
+    class DerivativesCoveredWarrantFactory {
+        +get_provider()
+        +Dict providers_implementations
     }
 
     class EtfFactory {
         +get_provider()
-        +Dict etf_implementations
+        +Dict providers_implementations
     }
 
     class IndexFactory {
         +get_provider()
-        +Dict index_implementations
+        +Dict providers_implementations
     }
 
     class IndexPriceFactory {
         +get_provider()
-        +Dict index_price_implementations
+        +Dict providers_implementations
     }
 
     class NewsFactory {
         +get_provider()
-        +Dict news_provider_implementations
+        +Dict providers_implementations
     }
     
     FundsFactory <-- IFunds
@@ -508,6 +519,7 @@ classDiagram
     EquityFundamentalFactory <-- IEquityFundamental
     EquityDiscoveryFactory <-- IEquityDiscovery
     DerivativesFuturesFactory <-- IDerivativesFutures
+    DerivativesCoveredWarrantFactory <-- IDerivativesCoveredWarrant
     EtfFactory <-- IEtf
     IndexFactory <-- IIndex
     IndexPriceFactory <-- IIndexPrice
@@ -561,6 +573,10 @@ classDiagram
         +search()$
     }
 
+    class DerivativesCoveredWarrant {
+        +search()$
+    }
+
     class Etf {
         +search()$
         +historical()$
@@ -588,6 +604,7 @@ classDiagram
     EquityFundamental .. EquityFundamentalFactory
     EquityDiscovery .. EquityDiscoveryFactory
     DerivativesFutures .. DerivativesFuturesFactory
+    DerivativesCoveredWarrant .. DerivativesCoveredWarrantFactory
     Etf .. EtfFactory
     Index .. IndexFactory
     IndexPrice .. IndexPriceFactory
@@ -605,6 +622,7 @@ classDiagram
     Equity <-- EquityCalendar
     Equity <-- EquityDiscovery
     Derivatives <-- DerivativesFutures
+    Derivatives <-- DerivativesCoveredWarrant
     Index <-- IndexPrice
 ```
 

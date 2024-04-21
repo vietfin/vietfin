@@ -3,8 +3,14 @@
 from typing import Literal
 
 from vietfin.abstract.vfobject import VfObject
-from vietfin.abstract.factory import DerivativesFuturesFactory
-from vietfin.abstract.interface import IDerivativesFutures
+from vietfin.abstract.factory import (
+    DerivativesFuturesFactory,
+    DerivativesCoveredWarrantFactory,
+)
+from vietfin.abstract.interface import (
+    IDerivativesFutures,
+    IDerivativesCoveredWarrant,
+)
 
 
 class Derivatives:
@@ -12,6 +18,7 @@ class Derivatives:
 
     def __init__(self) -> None:
         self.futures = DerivativesFutures()
+        self.cw = DerivativesCoveredWarrant()
 
 
 class DerivativesFutures:
@@ -55,10 +62,26 @@ class DerivativesFutures:
             limit=limit,
         )
 
-    def search(
-        self, symbol: str = "", provider: PROVIDERS = "ssi"
-    ) -> VfObject:
+    def search(self, symbol: str = "", provider: PROVIDERS = "ssi") -> VfObject:
         """Derivatives Futures Search. Search for a specific futures contract."""
+
+        provider_instance = self._get_provider(provider)
+        return provider_instance.search(symbol=symbol)
+
+
+class DerivativesCoveredWarrant:
+    """VietFin Derivatives.CoveredWarrant-related group of commands."""
+
+    # list of implemented providers
+    PROVIDERS = Literal["ssi"]
+
+    @staticmethod
+    def _get_provider(provider: PROVIDERS) -> IDerivativesCoveredWarrant:
+        provider_name = provider.lower()
+        return DerivativesCoveredWarrantFactory().get_provider(provider_name)
+
+    def search(self, symbol: str = "", provider: PROVIDERS = "ssi") -> VfObject:
+        """Derivatives Covered Warrant Search. Search for a specific covered warrant."""
 
         provider_instance = self._get_provider(provider)
         return provider_instance.search(symbol=symbol)
