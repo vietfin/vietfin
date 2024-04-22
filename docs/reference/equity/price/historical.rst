@@ -70,3 +70,9 @@ Data Model
          close        float               The close price.       
          volume       int                 The trading volume.    
         ============ =================== =======================
+
+Data Sources
+------------
+
+- DNSE: `banggia.dnse.com.vn <https://banggia.dnse.com.vn/>`_
+- SSI: `iboard.ssi.com.vn <https://iboard.ssi.com.vn/>`_

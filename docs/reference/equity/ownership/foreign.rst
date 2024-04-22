@@ -50,3 +50,8 @@ Data Model
          close_price          float   Current daily close price of the stock ticker.                                 
          percent_change       float   Percent change of the stock ticker compared to previous session.               
         ==================== ======= =============================================================================== 
+
+Data Sources
+------------
+
+- CafeF: `s.cafef.vn <https://s.cafef.vn/lich-su-giao-dich-vnindex-3.chn#data>`_

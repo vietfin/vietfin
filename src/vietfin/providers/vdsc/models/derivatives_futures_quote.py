@@ -1,4 +1,4 @@
-"""VDSC Rong Viet Derivatives Futures Historical Price Model."""
+"""VDSC Rong Viet Derivatives Futures Quote Model."""
 
 from datetime import time
 

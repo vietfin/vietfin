@@ -23,8 +23,8 @@ Parameters
  provider     Literal   The provider to use for the query               fmarket         FALSE        
 ============ ========= =============================================== =============== =============
 
-Returns
--------
+Data Model
+----------
 
 .. tab-set::
 
@@ -39,3 +39,8 @@ Returns
          asset_category   str        The asset category of the holding.                   
          update_at        datetime   The date when the data was updated.                  
         ================ ========== ===================================================== 
+
+Data Sources
+------------
+
+- Fmarket: `fmarket.vn <https://fmarket.vn/home>`_

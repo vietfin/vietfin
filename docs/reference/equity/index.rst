@@ -14,6 +14,12 @@ Menus
 
         events.
 
+    .. grid-item-card:: Discovery
+        :link: discovery/index
+        :link-type: doc
+
+        active, gainers, losers.
+
     .. grid-item-card:: Fundamental
         :link: fundamental/index
         :link-type: doc
@@ -58,6 +64,7 @@ Commands
     search
     profile
     calendar/index
+    discovery/index
     fundamental/index
     ownership/index
     price/index

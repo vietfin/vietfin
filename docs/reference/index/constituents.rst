@@ -23,8 +23,8 @@ Parameters
  provider     Literal   The provider to use for the query.   ssi                FALSE        
 ============ ========= ==================================== ================== ============= 
 
-Returns
--------
+Data Model
+----------
 
 .. tab-set::
 
@@ -42,3 +42,8 @@ Returns
          prev_close   float   The previous close price.                      
          exchange     str     The exchange where the stock is listed.        
         ============ ======= =============================================== 
+
+Data Sources
+------------
+
+- SSI: `iboard.ssi.com.vn <https://iboard.ssi.com.vn/>`_

@@ -13,8 +13,8 @@ Get the news related to stock ticker VNM, using default parameters: ``provider``
 
     vf.news.company(symbol="vnm")
 
-Company
--------
+Parameters
+----------
 
 ============ ================= ============================================ =============== ============= 
  param_name   type              description                                  default_value   is_required  
@@ -25,8 +25,8 @@ Company
  provider     Literal           The provider to use for the query            tcbs            FALSE         
 ============ ================= ============================================ =============== ============= 
 
-Returns
--------
+Data Model
+----------
 
 .. tab-set::
 

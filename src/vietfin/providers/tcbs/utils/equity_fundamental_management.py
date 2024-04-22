@@ -1,6 +1,6 @@
 """TCBS Equity Fundamental Management command."""
 
-import requests
+import httpx as requests
 
 from vietfin.abstract.vfobject import VfObject
 from vietfin.utils.helpers import (

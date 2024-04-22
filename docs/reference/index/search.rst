@@ -23,8 +23,8 @@ Parameters
  provider     Literal   The provider to use for the query.   ssi                FALSE        
 ============ ========= ==================================== ================== ============= 
 
-Returns
--------
+Data Model
+----------
 
 .. tab-set::
 
@@ -36,3 +36,8 @@ Returns
          index_symbol     str        Symbol of an index.                                        
          group_by_index   str        The parent index from which the given index is derived.    
         ================ ========== ========================================================== 
+
+Data Sources
+------------
+
+- SSI: `iboard.ssi.com.vn <https://iboard.ssi.com.vn/>`_

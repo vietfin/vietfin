@@ -1,6 +1,6 @@
 """SSI Etf Historical Model."""
 
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from typing import Any
 
 from pydantic import field_validator, model_validator
@@ -32,7 +32,7 @@ class SsiEtfHistoricalData(Data):
     def parse_unix_timestamp(cls, data: Any) -> Any:
         """Before model validators are applied, parse the raw input, convert the value of `t` key from unix timestamp to date."""
         if isinstance(data, dict):
-            data["t"] = datetime.utcfromtimestamp(data["t"]).date()
+            data["t"] = datetime.fromtimestamp(data["t"], tz=timezone.utc).date()
         return data
 
     @field_validator("open", "high", "low", "close")

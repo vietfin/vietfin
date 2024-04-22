@@ -23,8 +23,8 @@ Parameters
  provider     Literal   The provider to use for the query               fmarket         FALSE        
 ============ ========= =============================================== =============== =============
 
-Returns
--------
+Data Model
+----------
 
 .. tab-set::
 
@@ -42,3 +42,8 @@ Returns
          fund_owner       str        Name of the Organization issuing the fund.                
          fund_type        str        Type of fund. E.g. "stock", "bond", "balanced".            
         ================ ========== ========================================================== 
+
+Data Sources
+------------
+
+- Fmarket: `fmarket.vn <https://fmarket.vn/home>`_

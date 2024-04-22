@@ -1,6 +1,6 @@
 """SSI Etf Search function."""
 
-import requests
+import httpx as requests
 
 from vietfin.providers.ssi.utils.helpers import ssi_headers
 from vietfin.abstract.vfobject import VfObject
@@ -50,7 +50,7 @@ def search(symbol: str = "") -> VfObject:
     if not rows:
         raise EmptyDataError
 
-    # Filter results based on the provided symbol if it's not an empty string
+    # Filter results by comparing the provided symbol to the value of key "ss"
     if symbol:
         rows = [r for r in rows if r.get("ss", "").upper() == symbol.upper()]
 

@@ -2,7 +2,7 @@
 
 from vietfin.abstract.interface import IDerivativesFutures
 from vietfin.abstract.vfobject import VfObject
-from vietfin.providers.vdsc.utils.derivatives_futures_quote import quote as derivatives_futures_quote
+# from vietfin.providers.vdsc.utils.derivatives_futures_quote import quote
     
 
 class DerivativesFuturesVdsc(IDerivativesFutures):
@@ -13,7 +13,12 @@ class DerivativesFuturesVdsc(IDerivativesFutures):
 
         raise NotImplementedError("derivatives.futures.historical() command is not implemented for Vdsc Rong Viet provider.")
     
-    def quote(self, symbol: str, limit: int, cookie: str) -> VfObject:
+    def quote(self, symbol: str, limit: int) -> VfObject:
         """Derivatives Futures Quote. Load quote data for a specific futures contract."""
 
-        return derivatives_futures_quote(symbol=symbol, limit=limit, cookie=cookie)
+        raise NotImplementedError("derivatives.futures.quote() command is currently disabled for Vdsc Rong Viet provider.")
+
+    def search(self, symbol: str) -> VfObject:
+        """Derivatives Futures Search. Search for a specific futures contract."""
+
+        raise NotImplementedError("derivatives.futures.search() command is not implemented for Vdsc Rong Viet provider.")

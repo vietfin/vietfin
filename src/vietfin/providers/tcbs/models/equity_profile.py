@@ -1,7 +1,7 @@
 """TCBS Equity Profile Model."""
 
 from pydantic import AnyHttpUrl, field_validator
-from bs4 import BeautifulSoup as bs
+from selectolax.parser import HTMLParser
 
 from vietfin.abstract.data import Data
 
@@ -33,6 +33,8 @@ class TcbsEquityProfileData(Data):
     @classmethod
     def parse_html(cls, v: str) -> str:
         """Parse HTML to text."""
-        soup = bs(v, "html.parser")
-        v = soup.get_text(separator="\n", strip=True)
+        tree = HTMLParser(v)
+        if tree.body is None:
+            return "No event description available."
+        v = tree.body.text(separator="\n", strip=True)
         return v

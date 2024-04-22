@@ -3,7 +3,7 @@
 from datetime import timedelta, datetime
 from typing import Literal
 
-import requests
+import httpx as requests
 from pydantic import field_validator
 
 from vietfin.providers.tcbs.utils.helpers import tcbs_headers

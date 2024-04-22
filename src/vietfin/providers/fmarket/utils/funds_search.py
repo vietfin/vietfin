@@ -1,6 +1,6 @@
 """Fmarket Funds Search function."""
 
-import requests
+import httpx as requests
 from pydantic import BaseModel, ConfigDict, field_validator
 
 from vietfin.abstract.vfobject import VfObject

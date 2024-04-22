@@ -4,14 +4,16 @@ from typing import Any
 
 
 def assert_run_success(
-    result: Any, symbol: str | None = None, provider: str | None = None
+    result: Any,
+    symbol: str | None = None,
+    provider: str | None = None,
 ) -> None:
     """Checks whether the command in VietFin can be executed successfully.
 
     This simple assertion validates the result obtained from a command:
     - assert correct symbol name returned from command
     - assert correct provider name returned from command
-    - assert results attribute of VfObject is not null
+    - assert results attribute of VfObject is not Null
     """
     if symbol is not None:
         # Assert correct symbol name returned from query

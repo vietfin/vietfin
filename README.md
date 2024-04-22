@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/docs/_static/logo.jpg" alt="VietFin" width="228" />
+  <img src="https://github.com/vietfin/vietfin/blob/main/docs/_static/logo.jpg" alt="VietFin" width="228" />
 </p>
 
 <h2 align="center">VietFin</h2>
@@ -41,7 +41,7 @@ VietFin is intended for personal use, research and educational purposes.
 
 ## 2. Installation
 
-VietFin is available on [PyPI](https://pypi.org/). To use the package:
+VietFin is available on [PyPI](https://pypi.org/project/vietfin/). To use the package:
 
 1. Install VietFin in your project's virtual environment.
 
@@ -49,7 +49,7 @@ VietFin is available on [PyPI](https://pypi.org/). To use the package:
     $ pip install vietfin
     ```
 
-    Or using [Poetry](https://python-poetry.org/) as my preferred dependency manager:
+    Or using [Poetry](https://python-poetry.org/), my preferred dependency manager:
 
     ``` {.sourceCode .bash}
     $ poetry add vietfin
@@ -64,9 +64,11 @@ VietFin is available on [PyPI](https://pypi.org/). To use the package:
 Requirements:
 
 - [Python](https://www.python.org) \>= 3.10
-- [requests](https://requests.readthedocs.io/en/latest/) \>= 2.31
 - [pandas](https://pandas.pydata.org/) \>= 2.1.4
 - [Pydantic](https://github.com/pydantic/pydantic) \>= 2.5
+- [httpx](https://www.python-httpx.org/) \>= 0.27
+- [selectolax](https://github.com/rushter/selectolax) \>= 0.3
+- [openpyxl](https://pypi.org/project/openpyxl/) \>= 3.1.2
 
 ## 3. Usage
 
@@ -104,6 +106,9 @@ vf.etf.search()
 
 # Get the list of constituents of an index
 vf.index.constituents(symbol='vn30')
+
+# Get the list of available futures contract
+vf.derivatives.futures.search()
 ```
 
 ## 4. Contributing
@@ -124,8 +129,8 @@ Feel free to reach out to us in [our GitHub Discussions](https://github.com/viet
 
 VietFin is built on top of the inspiration and work of the following projects:
 
-- [Openbb](https://github.com/OpenBB-finance/OpenBBTerminal), its [Data Standardization Infrastructure](https://docs.openbb.co/platform/development/developer-guidelines/architectural_considerations), the hierarchical structure of user-facing commands, and the documentation style of [OpenBB Platform's API reference](https://docs.openbb.co/platform/reference).
-- [vnstock](https://github.com/thinh-vu/vnstock) and its findinds on publicly available APIs from brokerage firms in Vietnam.
+- [OpenBB](https://github.com/OpenBB-finance/OpenBBTerminal), its [Data Standardization Infrastructure](https://docs.openbb.co/platform/development/developer-guidelines/architectural_considerations), the hierarchical structure of user-facing commands, and the documentation style of [OpenBB Platform's API reference](https://docs.openbb.co/platform/reference).
+- [vnstock](https://github.com/thinh-vu/vnstock) and its findinds on publicly available APIs from many brokerage firms in Vietnam.
 
 ## 6. Disclaimer
 

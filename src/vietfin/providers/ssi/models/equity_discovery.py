@@ -16,7 +16,7 @@ class SsiEquityDiscoveryData(Data):
         "industry": "sectorName",
     }
 
-    symbol: str  # Symbol representing the entity requested in the data.
+    symbol: str  # Symbol representing the stock satisfying the criteria.
     price: float  # Last price of the stock.
     change: float  # Change in price value.
     percent_change: float  # Percent change in price value.

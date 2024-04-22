@@ -2,7 +2,7 @@
 
 from datetime import datetime, timedelta
 
-import requests
+import httpx as requests
 from pydantic import field_validator, model_validator
 
 from vietfin.providers.ssi.utils.helpers import ssi_headers

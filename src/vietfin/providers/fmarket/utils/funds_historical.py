@@ -1,7 +1,7 @@
 """Fmarket Funds Historical function."""
 
 from datetime import datetime
-import requests
+import httpx as requests
 from pydantic import model_validator
 
 from vietfin.providers.fmarket.utils.helpers import fmarket_headers, get_fund_id

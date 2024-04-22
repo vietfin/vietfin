@@ -1,1 +1,1 @@
-"""SSI Providers Directory."""
+"""SSI Provider Directory."""

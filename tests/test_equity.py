@@ -105,79 +105,41 @@ def test_equity_calendar_events_with_default_params(symbol):
 @pytest.mark.parametrize(
     "symbol",
     [
-        "ssi",
-    ],
-)
-def test_equity_fundamental_management_with_default_params(symbol):
-    """Test equity.fundamental.management() command with default params."""
-
-    result = vf.equity.fundamental.management(symbol)
-    ars(result, symbol)
-
-
-@pytest.mark.parametrize(
-    "symbol",
-    [
         "acb",
     ],
 )
-def test_equity_fundamental_ratios_with_default_params(symbol):
-    """Test equity.fundamental.ratios() command with default params."""
+class TestEquityFundamentalWithDefaultParams:
+    """Test equity.fundamental.*() commands with default params."""
 
-    result = vf.equity.fundamental.ratios(symbol)
-    ars(result, symbol)
+    def test_equity_fundamental_management(self, symbol):
+        """Test equity.fundamental.management() command with default params."""
+        result = vf.equity.fundamental.management(symbol)
+        ars(result, symbol)
 
+    def test_equity_fundamental_ratios(self, symbol):
+        """Test equity.fundamental.ratios() command with default params."""
+        result = vf.equity.fundamental.ratios(symbol)
+        ars(result, symbol)
 
-@pytest.mark.parametrize(
-    "symbol",
-    [
-        "acb",
-    ],
-)
-def test_equity_fundamental_dividends_with_default_params(symbol):
-    """Test equity.fundamental.dividends() command with default params."""
+    def test_equity_fundamental_dividends(self, symbol):
+        """Test equity.fundamental.dividends() command with default params."""
+        result = vf.equity.fundamental.dividends(symbol)
+        ars(result, symbol)
 
-    result = vf.equity.fundamental.dividends(symbol)
-    ars(result, symbol)
+    def test_equity_fundamental_income(self, symbol):
+        """Test equity.fundamental.income() command with default params."""
+        result = vf.equity.fundamental.income(symbol)
+        ars(result, symbol)
 
+    def test_equity_fundamental_balance(self, symbol):
+        """Test equity.fundamental.balance() command with default params."""
+        result = vf.equity.fundamental.balance(symbol)
+        ars(result, symbol)
 
-@pytest.mark.parametrize(
-    "symbol",
-    [
-        "acb",
-    ],
-)
-def test_equity_fundamental_income_with_default_params(symbol):
-    """Test equity.fundamental.income() command with default params."""
-
-    result = vf.equity.fundamental.income(symbol)
-    ars(result, symbol)
-
-
-@pytest.mark.parametrize(
-    "symbol",
-    [
-        "acb",
-    ],
-)
-def test_equity_fundamental_balance_with_default_params(symbol):
-    """Test equity.fundamental.balance() command with default params."""
-
-    result = vf.equity.fundamental.balance(symbol)
-    ars(result, symbol)
-
-
-@pytest.mark.parametrize(
-    "symbol",
-    [
-        "acb",
-    ],
-)
-def test_equity_fundamental_cash_with_default_params(symbol):
-    """Test equity.fundamental.cash() command with default params."""
-
-    result = vf.equity.fundamental.cash(symbol)
-    ars(result, symbol)
+    def test_equity_fundamental_cash(self, symbol):
+        """Test equity.fundamental.cash() command with default params."""
+        result = vf.equity.fundamental.cash(symbol)
+        ars(result, symbol)
 
 
 # Test methods in Equity.Ownership class
@@ -187,47 +149,52 @@ def test_equity_fundamental_cash_with_default_params(symbol):
         "fpt",
     ],
 )
-def test_equity_ownership_insider_trading_with_default_params(symbol):
-    """Test equity.ownership.insider_trading() command with default params."""
+class TestEquityOwnershipWithDefaultParams:
+    """Test equity.ownership.*() commands with default params."""
 
-    result = vf.equity.ownership.insider_trading(symbol)
-    ars(result, symbol)
+    def test_equity_ownership_insider_trading(self, symbol):
+        """Test equity.ownership.insider_trading() command with default params."""
+        result = vf.equity.ownership.insider_trading(symbol)
+        ars(result, symbol)
+
+    def test_equity_ownership_major_holders(self, symbol):
+        """Test equity.ownership.major_holders() command with default params."""
+        result = vf.equity.ownership.major_holders(symbol)
+        ars(result, symbol)
+
+    def test_equity_ownership_foreign_trading(self, symbol):
+        """Test equity.ownership.foreign_trading() command with default params."""
+        result = vf.equity.ownership.foreign_trading(symbol)
+        ars(result, symbol)
+
+    def test_equity_ownership_prop_trading(self, symbol):
+        """Test equity.ownership.prop_trading() command with default params."""
+        result = vf.equity.ownership.prop_trading(symbol)
+        ars(result, symbol)
 
 
+# Test methods in Equity.Discovery class
 @pytest.mark.parametrize(
-    "symbol",
+    "exchange",
     [
-        "fpt",
+        "hose",
+        "hnx",
     ],
 )
-def test_equity_ownership_major_holders_with_default_params(symbol):
-    """Test equity.ownership.major_holders() command with default params."""
+class TestEquityDiscoveryWithDefaultParams:
+    """Test equity.discovery.*() commands with default params."""
 
-    result = vf.equity.ownership.major_holders(symbol)
-    ars(result, symbol)
+    def test_equity_discovery_active(self, exchange):
+        """Test equity.discovery.active() command."""
+        result = vf.equity.discovery.active(exchange)
+        ars(result)
 
+    def test_equity_discovery_gainers(self, exchange):
+        """Test equity.discovery.gainers() command."""
+        result = vf.equity.discovery.gainers(exchange)
+        ars(result)
 
-@pytest.mark.parametrize(
-    "symbol",
-    [
-        "fpt",
-    ],
-)
-def test_equity_ownership_foreign_trading_with_default_params(symbol):
-    """Test equity.ownership.foreign_trading() command with default params."""
-
-    result = vf.equity.ownership.foreign_trading(symbol)
-    ars(result, symbol)
-
-
-@pytest.mark.parametrize(
-    "symbol",
-    [
-        "fpt",
-    ],
-)
-def test_equity_ownership_prop_trading_with_default_params(symbol):
-    """Test equity.ownership.prop_trading() command with default params."""
-
-    result = vf.equity.ownership.prop_trading(symbol)
-    ars(result, symbol)
+    def test_equity_discovery_losers(self, exchange):
+        """Test equity.discovery.losers() command."""
+        result = vf.equity.discovery.losers(exchange)
+        ars(result)

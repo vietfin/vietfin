@@ -23,12 +23,12 @@ Parameters
 ============ ================= ============================================ =============== ============= 
  param_name   type              description                                  default_value   is_required  
 ============ ================= ============================================ =============== ============= 
- symbol       str               Symbol to get data for.                                      TRUE         
+ symbol       str               Symbol to get data for.                      ""              FALSE         
  provider     Literal           The provider to use for the query.           ssi             FALSE         
 ============ ================= ============================================ =============== ============= 
 
-Returns
--------
+Data Model
+----------
 
 .. tab-set::
 

@@ -224,7 +224,7 @@ class VfObject(BaseModel, Generic[T]):
             from polars import from_pandas  # type: ignore # pylint: disable=import-outside-toplevel
         except ImportError as exc:
             raise ImportError(
-                "Please install polars: `pip install polars pyarrow`  to use this method."
+                "Please install polars: `poetry add polars pyarrow` to use this method."
             ) from exc
 
         return from_pandas(self.to_df(index=None))
